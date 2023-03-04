@@ -8,13 +8,9 @@
         }
       }
     },
-    "post": {
-      "title": {
-        "config": {
-          "patternType": "HEADING",
-          "blocks": 1
-        }
-      }
+    "post": {},
+    "footer": {
+      "footerText": {}
     }
   },
   "slices": {

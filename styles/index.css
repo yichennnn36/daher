@@ -3,3 +3,205 @@
 @tailwind components;
 /* purgecss end ignore */
 @tailwind utilities;
+
+@layer utilities {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .pb-safe {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pt-safe {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+  }
+  .pl-safe {
+    padding-left: constant(safe-area-inset-left);
+    padding-left: env(safe-area-inset-left);
+  }
+  .pr-safe {
+    padding-right: constant(safe-area-inset-right);
+    padding-right: env(safe-area-inset-right);
+  }
+  .banner {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b05200+2,472f0e+20,2c6b78+50,010e21+76,000000+100 */
+    background: rgb(176, 82, 0); /* Old browsers */
+    background: -moz-linear-gradient(
+      left,
+      rgba(176, 82, 0, 1) 2%,
+      rgba(71, 47, 14, 1) 20%,
+      rgba(44, 107, 120, 1) 50%,
+      rgba(1, 14, 33, 1) 76%,
+      rgba(0, 0, 0, 1) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      left,
+      rgba(176, 82, 0, 1) 2%,
+      rgba(71, 47, 14, 1) 20%,
+      rgba(44, 107, 120, 1) 50%,
+      rgba(1, 14, 33, 1) 76%,
+      rgba(0, 0, 0, 1) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to right,
+      rgba(176, 82, 0, 1) 2%,
+      rgba(71, 47, 14, 1) 20%,
+      rgba(44, 107, 120, 1) 50%,
+      rgba(1, 14, 33, 1) 76%,
+      rgba(0, 0, 0, 1) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b05200', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+  }
+  .banner-circle1 {
+    background-image: url("/images/banner-circle2.svg");
+  }
+  .banner-circle2 {
+    background-image: url("/images/banner-circle1.svg");
+  }
+  .header-bg {
+    background: linear-gradient(to bottom, #000000, #0d0d0d, #88888831);
+    opacity: 0.3;
+  }
+  .header-bg2 {
+    background: linear-gradient(to bottom, #0d0d0d, #424040c2);
+    opacity: 1;
+  }
+  .main-block2::before {
+    content: "";
+    display: block;
+    background-size: cover;
+    background-image: url("/images/main-block2.svg");
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .main-block3::before {
+    content: "";
+    display: block;
+    background-size: cover;
+    background-image: url("/images/main-block3.svg");
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  /*
+選單線
+*/
+  .line {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: block;
+    padding: 16px;
+    position: fixed;
+    z-index: 2;
+  }
+  .line .menu,
+  .line .menu::before,
+  .line .menu::after {
+    background: white;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
+    width: 20px;
+  }
+  .line .menu {
+    left: 18px;
+    top: 80px;
+  }
+  .line .menu::before {
+    top: -6px;
+  }
+  .line .menu::after {
+    top: 6px;
+  }
+  /*
+點選選單變叉叉
+*/
+  #menu:checked + .line .menu {
+    background: transparent;
+  }
+  #menu:checked + .line .menu::before {
+    transform: rotate(45deg);
+  }
+  #menu:checked + .line .menu::after {
+    transform: rotate(-45deg);
+  }
+  #menu:checked + .line .menu::before,
+  #menu:checked + .line .menu::after {
+    top: 0;
+    transition: top ease 0.3s, transform ease 0.3s 0.3s;
+  }
+  /*
+選單開合
+*/
+  #menu:checked ~ .menu-list {
+    width: 100%;
+    backdrop-filter: blur(5px);
+  }
+  .menu-list {
+    width: 60px;
+    height: 100vh;
+    background: transparent;
+    position: fixed;
+    top: 100px;
+    z-index: 1;
+    transition: all 0.6s;
+    overflow: hidden;
+  }
+  /*
+選單向外推
+*/
+  .menu-list ul {
+    color: white;
+    list-style: none;
+    margin-left: 60px;
+    padding-top: 100px;
+  }
+  .menu-list ul > li {
+    display: block;
+    width: 300px;
+    letter-spacing: 8px;
+  }
+  /*
+隱藏核許框
+*/
+  input#menu {
+    display: none;
+  }
+  #loading-rotate-clockwise {
+    animation: rotate-clockwise 20s linear infinite;
+  }
+
+  @keyframes rotate-clockwise {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #loading-rotate-counterclockwise {
+    animation: rotate-counterclockwise 20s linear infinite;
+  }
+
+  @keyframes rotate-counterclockwise {
+    100% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(360deg);
+    }
+  }
+}

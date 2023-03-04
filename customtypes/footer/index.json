@@ -1,0 +1,34 @@
+{
+  "id": "footer",
+  "label": "footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footerText": {
+        "type": "Group",
+        "config": {
+          "label": "footer text",
+          "fields": {
+            "tel": {
+              "type": "StructuredText",
+              "config": {
+                "label": "TEL",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "telno": {
+              "type": "Text",
+              "config": {
+                "label": "07-766-1234",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
