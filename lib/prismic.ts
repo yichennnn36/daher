@@ -1,22 +1,30 @@
-import * as prismic from '@prismicio/client'
-import * as prismicNext from '@prismicio/next'
+import * as prismic from "@prismicio/client";
+import * as prismicNext from "@prismicio/next";
 
-import sm from '../sm.json'
+import sm from "../sm.json";
 
 /**
  * The project's Prismic repository name.
  */
-export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint)
+export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 
 /**
  * Route definitions for Prismic documents.
  */
 const routes: prismic.Route[] = [
   {
-    type: 'post',
-    path: '/posts/:uid',
+    type: "post",
+    path: "/posts/:uid",
   },
-]
+  {
+    type: "tag",
+    path: "/gallery/:uid",
+  },
+  {
+    type: "projectpost",
+    path: "/gallery/:uid",
+  },
+];
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
@@ -32,9 +40,9 @@ export const createClient = ({
   const client = prismic.createClient(sm.apiEndpoint, {
     routes,
     ...config,
-  })
+  });
 
-  prismicNext.enableAutoPreviews({ client, previewData, req })
+  prismicNext.enableAutoPreviews({ client, previewData, req });
 
-  return client
-}
+  return client;
+};

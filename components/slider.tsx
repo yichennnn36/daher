@@ -2,17 +2,20 @@ import Slider from "react-slick";
 
 const settings = {
   infinite: true,
-  centerPadding: "60px",
   slidesToShow: 7,
-  speed: 500,
+  slidesToScroll: 1,
+  autoplay: true,
+  adaptiveHeight: true,
+  speed: 2000,
+  autoplaySpeed: 2000,
+  cssEase: "linear",
+  arrows: false,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 5,
+        slidesToShow: 3,
         slidesToScroll: 3,
-        infinite: true,
-        dots: true,
       },
     },
     {
@@ -28,6 +31,7 @@ const settings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
+        initialSlide: 1,
       },
     },
   ],
@@ -57,8 +61,11 @@ const CustomSlider = () => {
   return (
     <Slider {...settings}>
       {data.map((x, index) => (
-        <div key={`${index}-${x?.image}`}>
-          <img alt={x.image} src={x?.src} />
+        <div
+          key={`${index}-${x?.image}`}
+          className="hover:scale-[1.15] ease-out duration-300 cursor-pointer"
+        >
+          <img alt={x.image} src={x?.src} className="p-4" />
         </div>
       ))}
     </Slider>

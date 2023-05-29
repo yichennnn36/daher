@@ -4,10 +4,14 @@ module.exports = {
   purge: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
+    './container/**/*.{js,ts,jsx,tsx}',
     './slices/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
+      flex: {
+        '4': '4 4 0%'
+      },
       colors: {
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',

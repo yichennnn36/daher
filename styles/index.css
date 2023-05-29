@@ -9,6 +9,9 @@
     margin: 0;
     padding: 0;
   }
+  body::-webkit-scrollbar {
+    display: none;
+  }
   .pb-safe {
     padding-bottom: constant(safe-area-inset-bottom);
     padding-bottom: env(safe-area-inset-bottom);
@@ -26,43 +29,17 @@
     padding-right: env(safe-area-inset-right);
   }
   .banner {
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b05200+2,472f0e+20,2c6b78+50,010e21+76,000000+100 */
-    background: rgb(176, 82, 0); /* Old browsers */
-    background: -moz-linear-gradient(
-      left,
-      rgba(176, 82, 0, 1) 2%,
-      rgba(71, 47, 14, 1) 20%,
-      rgba(44, 107, 120, 1) 50%,
-      rgba(1, 14, 33, 1) 76%,
-      rgba(0, 0, 0, 1) 100%
-    ); /* FF3.6-15 */
-    background: -webkit-linear-gradient(
-      left,
-      rgba(176, 82, 0, 1) 2%,
-      rgba(71, 47, 14, 1) 20%,
-      rgba(44, 107, 120, 1) 50%,
-      rgba(1, 14, 33, 1) 76%,
-      rgba(0, 0, 0, 1) 100%
-    ); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(
-      to right,
-      rgba(176, 82, 0, 1) 2%,
-      rgba(71, 47, 14, 1) 20%,
-      rgba(44, 107, 120, 1) 50%,
-      rgba(1, 14, 33, 1) 76%,
-      rgba(0, 0, 0, 1) 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b05200', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+    background-image: url("/images/banner.png");
   }
   .banner-circle1 {
-    background-image: url("/images/banner-circle2.svg");
+    background-image: url("/images/banner-circle-left.svg");
   }
   .banner-circle2 {
-    background-image: url("/images/banner-circle1.svg");
+    background-image: url("/images/banner-circle-md.svg");
   }
   .header-bg {
-    background: linear-gradient(to bottom, #000000, #0d0d0d, #88888831);
-    opacity: 0.3;
+    background: linear-gradient(to bottom, #0d0d0d, #353333e0, #88888804);
+    opacity: 0.9;
   }
   .header-bg2 {
     background: linear-gradient(to bottom, #0d0d0d, #424040c2);
@@ -73,7 +50,7 @@
     display: block;
     background-size: cover;
     background-image: url("/images/main-block2.svg");
-    opacity: 0.5;
+    opacity: 0.4;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -85,16 +62,23 @@
     display: block;
     background-size: cover;
     background-image: url("/images/main-block3.svg");
-    opacity: 0.5;
+    opacity: 0.4;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
   }
+  .blockanimation {
+    flex: 1;
+    transition: flex 1s ease;
+  }
+  .blockanimation:hover {
+    flex: 2;
+  }
   /*
-選單線
-*/
+    選單線
+  */
   .line {
     width: 24px;
     height: 24px;
@@ -113,21 +97,21 @@
     height: 1px;
     position: absolute;
     transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
-    width: 20px;
+    width: 30px;
   }
   .line .menu {
     left: 18px;
     top: 80px;
   }
   .line .menu::before {
-    top: -6px;
+    top: -8px;
   }
   .line .menu::after {
-    top: 6px;
+    top: 8px;
   }
   /*
-點選選單變叉叉
-*/
+    點選選單變叉叉
+  */
   #menu:checked + .line .menu {
     background: transparent;
   }
@@ -143,16 +127,20 @@
     transition: top ease 0.3s, transform ease 0.3s 0.3s;
   }
   /*
-選單開合
-*/
+    選單開合
+  */
   #menu:checked ~ .menu-list {
     width: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(9px);
+  }
+  #category:checked ~ .menu-list {
+    width: 100%;
+    backdrop-filter: blur(9px);
   }
   .menu-list {
-    width: 60px;
+    width: 0px;
     height: 100vh;
-    background: transparent;
+    background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 100px;
     z-index: 1;
@@ -160,8 +148,8 @@
     overflow: hidden;
   }
   /*
-選單向外推
-*/
+    選單向外推
+  */
   .menu-list ul {
     color: white;
     list-style: none;
@@ -169,18 +157,18 @@
     padding-top: 100px;
   }
   .menu-list ul > li {
+    z-index: 10;
     display: block;
     width: 300px;
-    letter-spacing: 8px;
   }
   /*
-隱藏核許框
-*/
+    隱藏核許框
+  */
   input#menu {
     display: none;
   }
   #loading-rotate-clockwise {
-    animation: rotate-clockwise 20s linear infinite;
+    animation: rotate-clockwise 50s linear infinite;
   }
 
   @keyframes rotate-clockwise {
@@ -202,6 +190,147 @@
     }
     0% {
       transform: rotate(360deg);
+    }
+  }
+
+  .rotate {
+    animation: rotate 14s alternate infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .bounceout {
+    animation: 2s linear 1s infinite alternate bounceout;
+  }
+
+  @keyframes bounceout {
+    0% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .neon {
+    animation: neon 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes neon {
+    0%,
+    100% {
+      text-shadow: 0 0 1px rgb(195 197 202), 0 0 5px rgb(195 197 202),
+        0 0 2px rgb(195 197 202);
+    }
+    50% {
+      text-shadow: 0 0 4px rgb(195 197 202), 0 0 10px rgb(195 197 202),
+        0 0 4px rgb(195 197 202);
+    }
+  }
+
+  .disappear {
+    animation: disappear 3.5s 1 linear forwards;
+  }
+
+  @keyframes disappear {
+    0%,
+    70% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+
+  .backdrop-filter {
+    backdrop-filter: blur(5px);
+  }
+  .project {
+    background-image: url("/images/gallery-bg.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  .close {
+    background: transparent;
+    content: "";
+    display: block;
+    height: 30px;
+    position: absolute;
+    width: 50px;
+    right: 0;
+  }
+  .close::after,
+  .close::before {
+    background: white;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    width: 30px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .close::after {
+    transform: rotate(45deg);
+  }
+  .close::before {
+    transform: rotate(-45deg);
+  }
+  .text-shadow {
+    text-shadow: 1px 1px 2px rgb(79, 77, 77), 0 0 1em #fff, 0 0 0.2em #fff;
+  }
+  @media (min-width: 1024px) {
+    .text-shadow {
+      text-shadow: 0px 0px 0px;
+    }
+  }
+
+  .arrow-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arrow {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    transform: rotate(-135deg);
+    animation: arrow-load 2s infinite;
+  }
+  .arrow:nth-child(1) {
+    top: 20px;
+    left: 20px;
+    animation-delay: -0.4s;
+  }
+  .arrow:nth-child(2) {
+    animation-delay: -0.2s;
+  }
+  /* .arrow:nth-child(2) {
+    bottom: 20px;
+    right: 20px;
+  } */
+  @keyframes arrow-load {
+    0% {
+      opacity: 0;
+      transform: rotate(-135deg) translate(5px, 5px);
+    }
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(-135deg) translate(-5px, -5px);
     }
   }
 }

@@ -91,6 +91,115 @@ export interface FooterDocumentDataFooterTextItem {
  * @typeParam Lang - Language API ID of the document.
  */
 export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
+/** Content for Gallery documents */
+interface GalleryDocumentData {
+    /**
+     * title field in *Gallery*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: gallery.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Slice Zone field in *Gallery*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: gallery.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<GalleryDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Gallery → Slice Zone*
+ *
+ */
+type GalleryDocumentDataSlicesSlice = GallerySlice;
+/**
+ * Gallery document from Prismic
+ *
+ * - **API ID**: `gallery`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<GalleryDocumentData>, "gallery", Lang>;
+/** Content for Homepage documents */
+interface HomepageDocumentData {
+    /**
+     * Slice Zone field in *Homepage*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: homepage.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<HomepageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Homepage → Slice Zone*
+ *
+ */
+type HomepageDocumentDataSlicesSlice = BannerSlice;
+/**
+ * Homepage document from Prismic
+ *
+ * - **API ID**: `homepage`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomepageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomepageDocumentData>, "homepage", Lang>;
+/** Content for ImagePost documents */
+interface ImagepostDocumentData {
+    /**
+     * TagName field in *ImagePost*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: imagepost.tagname
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    tagname: prismicT.RelationField;
+    /**
+     * Slice Zone field in *ImagePost*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: imagepost.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<ImagepostDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *ImagePost → Slice Zone*
+ *
+ */
+type ImagepostDocumentDataSlicesSlice = RelatedGallerySlice;
+/**
+ * ImagePost document from Prismic
+ *
+ * - **API ID**: `imagepost`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ImagepostDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ImagepostDocumentData>, "imagepost", Lang>;
 /** Content for Post documents */
 interface PostDocumentData {
     /**
@@ -158,7 +267,277 @@ type PostDocumentDataSlicesSlice = TextSlice | ImageSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type PostDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<PostDocumentData>, "post", Lang>;
-export type AllDocumentTypes = AuthorDocument | FooterDocument | PostDocument;
+/** Content for ProjectPost documents */
+interface ProjectpostDocumentData {
+    /**
+     * TagName field in *ProjectPost*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: projectpost.tagname
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    tagname: prismicT.RelationField;
+    /**
+     * featureImage field in *ProjectPost*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: projectpost.featureimage
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    featureimage: prismicT.ImageField<never>;
+    /**
+     * title field in *ProjectPost*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: projectpost.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * description field in *ProjectPost*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: projectpost.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * Slice Zone field in *ProjectPost*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: projectpost.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<ProjectpostDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *ProjectPost → Slice Zone*
+ *
+ */
+type ProjectpostDocumentDataSlicesSlice = GallerySlice | RelatedGallerySlice;
+/**
+ * ProjectPost document from Prismic
+ *
+ * - **API ID**: `projectpost`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectpostDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ProjectpostDocumentData>, "projectpost", Lang>;
+/** Content for Tag documents */
+interface TagDocumentData {
+    /**
+     * TagName field in *Tag*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tag.tagname
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    tagname: prismicT.RichTextField;
+}
+/**
+ * Tag document from Prismic
+ *
+ * - **API ID**: `tag`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TagDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<TagDocumentData>, "tag", Lang>;
+export type AllDocumentTypes = AuthorDocument | FooterDocument | GalleryDocument | HomepageDocument | ImagepostDocument | PostDocument | ProjectpostDocument | TagDocument;
+/**
+ * Primary content in Banner → Primary
+ *
+ */
+interface BannerSliceDefaultPrimary {
+    /**
+     * Title field in *Banner → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: banner.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *Banner → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: banner.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for Banner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Banner`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type BannerSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<BannerSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Banner*
+ *
+ */
+type BannerSliceVariation = BannerSliceDefault;
+/**
+ * Banner Shared Slice
+ *
+ * - **API ID**: `banner`
+ * - **Description**: `Banner`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type BannerSlice = prismicT.SharedSlice<"banner", BannerSliceVariation>;
+/**
+ * Primary content in GalleryContent → Primary
+ *
+ */
+interface RelatedGallerySliceDefaultPrimary {
+    /**
+     * image field in *GalleryContent → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: related_gallery.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * text field in *GalleryContent → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: related_gallery.primary.text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    text: prismicT.KeyTextField;
+}
+/**
+ * Default variation for GalleryContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `RelatedGallery`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type RelatedGallerySliceDefault = prismicT.SharedSliceVariation<"default", Simplify<RelatedGallerySliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *GalleryContent*
+ *
+ */
+type RelatedGallerySliceVariation = RelatedGallerySliceDefault;
+/**
+ * GalleryContent Shared Slice
+ *
+ * - **API ID**: `related_gallery`
+ * - **Description**: `RelatedGallery`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type RelatedGallerySlice = prismicT.SharedSlice<"related_gallery", RelatedGallerySliceVariation>;
+/**
+ * Primary content in GalleryMain → Primary
+ *
+ */
+interface GallerySliceDefaultPrimary {
+    /**
+     * title field in *GalleryMain → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: gallery.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * description field in *GalleryMain → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: gallery.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * image field in *GalleryMain → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: gallery.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+}
+/**
+ * Item in GalleryMain → Items
+ *
+ */
+export interface GallerySliceDefaultItem {
+    /**
+     * SliderImage field in *GalleryMain → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: gallery.items[].sliderimage
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    sliderimage: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for GalleryMain Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Gallery`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type GallerySliceDefault = prismicT.SharedSliceVariation<"default", Simplify<GallerySliceDefaultPrimary>, Simplify<GallerySliceDefaultItem>>;
+/**
+ * Slice variation for *GalleryMain*
+ *
+ */
+type GallerySliceVariation = GallerySliceDefault;
+/**
+ * GalleryMain Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: `Gallery`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type GallerySlice = prismicT.SharedSlice<"gallery", GallerySliceVariation>;
 /**
  * Primary content in Image → Primary
  *
@@ -242,6 +621,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AuthorDocumentData, AuthorDocument, FooterDocumentData, FooterDocumentDataFooterTextItem, FooterDocument, PostDocumentData, PostDocumentDataSliderItem, PostDocumentDataSlicesSlice, PostDocument, AllDocumentTypes, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
+        export type { AuthorDocumentData, AuthorDocument, FooterDocumentData, FooterDocumentDataFooterTextItem, FooterDocument, GalleryDocumentData, GalleryDocumentDataSlicesSlice, GalleryDocument, HomepageDocumentData, HomepageDocumentDataSlicesSlice, HomepageDocument, ImagepostDocumentData, ImagepostDocumentDataSlicesSlice, ImagepostDocument, PostDocumentData, PostDocumentDataSliderItem, PostDocumentDataSlicesSlice, PostDocument, ProjectpostDocumentData, ProjectpostDocumentDataSlicesSlice, ProjectpostDocument, TagDocumentData, TagDocument, AllDocumentTypes, BannerSliceDefaultPrimary, BannerSliceDefault, BannerSliceVariation, BannerSlice, RelatedGallerySliceDefaultPrimary, RelatedGallerySliceDefault, RelatedGallerySliceVariation, RelatedGallerySlice, GallerySliceDefaultPrimary, GallerySliceDefaultItem, GallerySliceDefault, GallerySliceVariation, GallerySlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceVariation, ImageSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
     }
 }

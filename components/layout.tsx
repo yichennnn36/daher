@@ -1,11 +1,10 @@
-import Meta from '../components/meta'
+import Meta from "../components/meta";
 
 type LayoutProps = {
-  preview: boolean
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-export default function Layout({ preview, children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Meta />
@@ -13,5 +12,5 @@ export default function Layout({ preview, children }: LayoutProps) {
         <main>{children}</main>
       </div>
     </>
-  )
+  );
 }

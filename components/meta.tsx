@@ -5,6 +5,7 @@ import { CMS_NAME, HOME_OG_IMAGE_URL } from "../lib/constants";
 export default function Meta() {
   return (
     <Head>
+      <title>大和派報社</title>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -40,14 +41,8 @@ export default function Meta() {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-      />
+      <meta name="description" content={`da-her`} />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
     </Head>
   );
