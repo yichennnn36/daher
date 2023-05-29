@@ -1,0 +1,23 @@
+{
+  "id": "header_image",
+  "type": "SharedSlice",
+  "name": "HeaderImage",
+  "description": "HeaderImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "name": {
+          "type": "Image",
+          "config": { "label": "name", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}

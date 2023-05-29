@@ -5,17 +5,17 @@ const settings = {
   slidesToShow: 7,
   slidesToScroll: 1,
   autoplay: true,
-  adaptiveHeight: true,
-  speed: 2000,
-  autoplaySpeed: 2000,
+  speed: 2500,
+  autoplaySpeed: 2500,
   cssEase: "linear",
   arrows: false,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 5,
         slidesToScroll: 3,
+        initialSlide: 3,
       },
     },
     {
@@ -37,37 +37,23 @@ const settings = {
   ],
 };
 
-const CustomSlider = () => {
-  const data = [
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-    { image: "name", src: "/images/jkolioneers.png" },
-  ];
+const CustomSlider = ({ logo }) => {
   return (
     <Slider {...settings}>
-      {data.map((x, index) => (
-        <div
-          key={`${index}-${x?.image}`}
-          className="hover:scale-[1.15] ease-out duration-300 cursor-pointer"
-        >
-          <img alt={x.image} src={x?.src} className="p-4" />
-        </div>
-      ))}
+      {logo.map((x, index) => {
+        return (
+          <div
+            key={index}
+            className="hover:scale-[1.15] ease-out duration-300 cursor-pointer rounded-xl min-h-[150px] !flex justify-center items-center "
+          >
+            <img
+              alt={x.repeatimage?.description}
+              src={x.repeatimage.url}
+              className="p-4 max-h-[120px] max-w-[120px]"
+            />
+          </div>
+        );
+      })}
     </Slider>
   );
 };

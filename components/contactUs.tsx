@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MessageModal from "./messageModal";
 import MapModal from "./mapModal";
+import AreaMap from "./areaMap";
 import emailjs from "@emailjs/browser";
 
 const Input = ({ name, setValue, value, placeholder }) => {
@@ -12,16 +13,15 @@ const Input = ({ name, setValue, value, placeholder }) => {
         value={value}
         required={true}
         onChange={(e) => setValue(e)}
-        className="border-b border-black pb-1 w-[100%] focus:outline-0"
+        className="border-b border-black pb-1 w-[100%] focus:outline-0 bg-transparent"
         placeholder={placeholder}
       />
     </div>
   );
 };
 
-const Contact = () => {
+const Contact = ({ area }) => {
   const [isShow, setIsShow] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [state, setState] = useState({
     name: "",
     address: "",
@@ -55,31 +55,9 @@ const Contact = () => {
       );
   };
   return (
-    <div className="bg-white opacity-80">
+    <div className="bg-white bg-opacity-80">
       {/* Map */}
-      <div className="relative px-10 py-20 space-y-24 z-20 md:flex md:space-y-0 md:py-24">
-        <div>
-          <img
-            src="/images/mapcity.png"
-            alt="map"
-            className="h-[80%] w-auto md:h-[90%]"
-          />
-          <img
-            src="/images/苓雅.png"
-            alt=""
-            className="w-[10%] absolute top-[263px] right-[49px] cursor-pointer hover:scale-[1.15] ease-out duration-300 lg:w-[5%] lg:left-[553px] lg:top-[454px]"
-            onClick={() => setIsOpen(true)}
-          />
-        </div>
-        <div>
-          <img
-            src="/images/mapspecial.png"
-            alt="map"
-            className="h-[80%] w-auto md:h-[90%]"
-          />
-        </div>
-      </div>
-      <MapModal isShow={isOpen} setIsShow={setIsOpen} />
+      <AreaMap area={area} />
       {/* Contact Us */}
       <div className="border-t border-black w-[90%] mx-auto"></div>
       <form

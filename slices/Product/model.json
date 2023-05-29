@@ -1,0 +1,61 @@
+{
+  "id": "product",
+  "type": "SharedSlice",
+  "name": "Product",
+  "description": "Product",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "productuid": {
+          "type": "Text",
+          "config": { "label": "商品編碼", "placeholder": "" }
+        },
+        "tagname": {
+          "type": "Link",
+          "config": { "label": "tagname", "select": "document" }
+        },
+        "mainimage": {
+          "type": "Image",
+          "config": { "label": "外層圖片", "constraint": {}, "thumbnails": [] }
+        },
+        "title": {
+          "type": "Text",
+          "config": { "label": "商品標題", "placeholder": "" }
+        },
+        "price": {
+          "type": "Text",
+          "config": { "label": "商品價錢", "placeholder": "" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "商品描述", "placeholder": "" }
+        }
+      },
+      "items": {
+        "sliderimage": {
+          "type": "Image",
+          "config": {
+            "label": "輪播商品照片",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "category": {
+          "type": "StructuredText",
+          "config": {
+            "label": "類別、顏色",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      }
+    }
+  ]
+}

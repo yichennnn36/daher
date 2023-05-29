@@ -1,0 +1,50 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "new"
+    },
+    "tagname": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "__TYPE__": "DocumentLink",
+        "id": "mock_document_id"
+      }
+    },
+    "featureimage": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+        "width": 4272,
+        "height": 2848
+      },
+      "url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+      "width": 4272,
+      "height": 2848,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 0
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    },
+    "title": {
+      "__TYPE__": "FieldContent",
+      "value": "cell",
+      "type": "Text"
+    },
+    "description": {
+      "__TYPE__": "FieldContent",
+      "value": "stems",
+      "type": "Text"
+    },
+    "slices": {
+      "__TYPE__": "SliceContentType",
+      "value": []
+    }
+  }
+]

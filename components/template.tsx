@@ -5,13 +5,14 @@ import Footer from "./footer";
 
 type LayoutProps = {
   children: React.ReactNode;
+  header: any;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, header }: LayoutProps) {
   return (
     <>
       <Container>
-        <Header />
+        <Header header={header} />
         <Banner />
         {children}
         <Footer />

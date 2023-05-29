@@ -1,0 +1,27 @@
+{
+  "id": "repeat_image",
+  "type": "SharedSlice",
+  "name": "RepeatImage",
+  "description": "RepeatImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "repeatimage": {
+          "type": "Image",
+          "config": {
+            "label": "repeatImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

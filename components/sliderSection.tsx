@@ -1,7 +1,9 @@
 import React from "react";
 import Slider from "./slider";
+import { get } from "lodash";
 
-function SliderSection() {
+function SliderSection({ logo }) {
+  const target = get(logo, "data.slices[0].items");
   return (
     <div className="relative">
       <div className="bg-white blur-2xl absolute w-full h-full top-0 z-[-10] bg-opacity-60"></div>
@@ -21,7 +23,7 @@ function SliderSection() {
         <div className="mt-10">
           {/* slider */}
           <div className="w-full p-10 lg:px-[120px]">
-            <Slider />
+            <Slider logo={target} />
           </div>
           {/* desc */}
           <div className="text-center px-12 text-[12px] text-white leading-6 lg:text-lg">

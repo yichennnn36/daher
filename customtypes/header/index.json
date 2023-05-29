@@ -1,0 +1,19 @@
+{
+  "id": "header",
+  "label": "頁首圖片",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": { "label": "headerImage", "placeholder": "" }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "header_image": { "type": "SharedSlice" } } }
+      }
+    }
+  }
+}

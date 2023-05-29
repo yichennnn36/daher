@@ -1,13 +1,19 @@
 import { createClient } from "../../../lib/prismic";
+import { PostDocumentWithAuthor } from "../../../lib/types";
 import Template from "../../../components/template";
 import Product from "../../../container/Product";
 import Layout from "../../../components/layout";
 
-const Index = () => {
+type IndexProps = {
+  preview: boolean;
+  data: PostDocumentWithAuthor[];
+};
+
+const Index = ({ data }: IndexProps) => {
   return (
     <Layout>
-      <Template>
-        <Product />
+      <Template header={data}>
+        <Product resource={data} />
       </Template>
     </Layout>
   );
@@ -15,28 +21,25 @@ const Index = () => {
 
 export default Index;
 
-// export async function getStaticProps({ params, previewData }) {
-//   const client = createClient({ previewData });
+export async function getStaticProps({ preview = false, previewData }) {
+  const client = createClient({ previewData });
 
-//   const tags = await client.getAllByType("tag");
-//   const projects = await client.getByType("projectpost", params.slug);
-//   // const allPosts = await client.getAllByType("post", {
-//   //   fetchLinks: ["author.name", "author.picture"],
-//   //   orderings: [{ field: "my.post.date", direction: "desc" }],
-//   // });
+  const headerImg = await client.getByUID("header", "logo");
+  const products = await client.getByUID("productpost", "product");
+  const tags = await client.getByType("producttag");
 
-//   return {
-//     props: { tags, projects: projects.results, slug: params.slug },
-//   };
-// }
+  return {
+    props: { data: { headerImg, products, tags } },
+  };
+}
 
-// export async function getStaticPaths() {
-//   const client = createClient();
+export async function getStaticPaths() {
+  const client = createClient();
 
-//   const allTags = await client.getAllByType("tag");
+  const allTags = await client.getAllByType("producttag");
 
-//   return {
-//     paths: allTags.map((x) => `/gallery/${x.uid}`),
-//     fallback: true,
-//   };
-// }
+  return {
+    paths: allTags.map((x) => `/product/${x.uid}}`),
+    fallback: true,
+  };
+}

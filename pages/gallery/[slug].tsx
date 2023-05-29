@@ -1,13 +1,20 @@
-import { createClient } from "../../lib/prismic";
+import { useState, useEffect, Suspense } from "react";
 import Template from "../../components/template";
 import Gallery from "../../container/Gallery";
 import Layout from "../../components/layout";
+import { createClient } from "../../lib/prismic";
+import { PostDocumentWithAuthor } from "../../lib/types";
 
-const Index = ({ tags, projects, slug }) => {
+type IndexProps = {
+  preview: boolean;
+  data: PostDocumentWithAuthor[];
+};
+
+const Index = ({ data }: IndexProps) => {
   return (
     <Layout>
-      <Template>
-        <Gallery path={slug} tags={tags} projects={projects} />
+      <Template header={data}>
+        <Gallery resource={data} />
       </Template>
     </Layout>
   );
@@ -15,18 +22,15 @@ const Index = ({ tags, projects, slug }) => {
 
 export default Index;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ preview = false, previewData }) {
   const client = createClient({ previewData });
 
-  const tags = await client.getAllByType("tag");
-  const projects = await client.getByType("projectpost", params.slug);
-  // const allPosts = await client.getAllByType("post", {
-  //   fetchLinks: ["author.name", "author.picture"],
-  //   orderings: [{ field: "my.post.date", direction: "desc" }],
-  // });
+  const headerImg = await client.getByUID("header", "logo");
+  const gallery = await client.getByUID("projectpost", "gallery");
+  const tags = await client.getByType("tag");
 
   return {
-    props: { tags, projects: projects.results, slug: params.slug },
+    props: { data: { headerImg, gallery, tags } },
   };
 }
 

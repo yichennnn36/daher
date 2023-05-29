@@ -1,27 +1,20 @@
 import { useState, useEffect, Suspense } from "react";
-import Head from "next/head";
 import Template from "../../components/template";
-import MoreStories from "../../components/more-stories";
-import HeroPost from "../../components/hero-post";
-import Intro from "../../components/intro";
 import Layout from "../../components/layout";
 import { createClient } from "../../lib/prismic";
 import { PostDocumentWithAuthor } from "../../lib/types";
-import { GetStaticPropsContext, GetStaticPropsResult } from "next";
 import MainIndex from "../../container/Main";
 
 type IndexProps = {
   preview: boolean;
-  allPosts: PostDocumentWithAuthor[];
+  data: PostDocumentWithAuthor[];
 };
 
-export default function Index({ preview, allPosts }: IndexProps) {
-  const [heroPost, ...morePosts] = allPosts;
-
+export default function Index({ data }: IndexProps) {
   return (
     <Layout>
-      <Template>
-        <MainIndex />
+      <Template header={data}>
+        <MainIndex data={data} />
       </Template>
     </Layout>
   );
@@ -30,14 +23,12 @@ export default function Index({ preview, allPosts }: IndexProps) {
 export async function getStaticProps({ preview = false, previewData }) {
   const client = createClient({ previewData });
 
-  // const tags = await client.getAllByType("tag");
-
-  // const allPosts = await client.getAllByType("post", {
-  //   fetchLinks: ["author.name", "author.picture"],
-  //   orderings: [{ field: "my.post.date", direction: "desc" }],
-  // });
+  const headerImg = await client.getByUID("header", "logo");
+  const historyText = await client.getByUID("history", "story");
+  const partnerLogo = await client.getByUID("partnerLogo", "partnerlogo");
+  const area = await client.getByUID("areamap", "area");
 
   return {
-    props: { preview, allPosts: [] },
+    props: { data: { headerImg, historyText, partnerLogo, area } },
   };
 }

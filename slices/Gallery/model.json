@@ -1,0 +1,57 @@
+{
+  "id": "gallery",
+  "type": "SharedSlice",
+  "name": "Gallery",
+  "description": "Gallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "tagname": {
+          "type": "Link",
+          "config": { "label": "tagName", "select": "document" }
+        },
+        "title": {
+          "type": "Text",
+          "config": { "label": "title", "placeholder": "" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "description", "placeholder": "" }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "外層圖片", "constraint": {}, "thumbnails": [] }
+        },
+        "context": {
+          "type": "StructuredText",
+          "config": {
+            "label": "內文文字描述",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "image2": {
+          "type": "Image",
+          "config": { "label": "內文小圖", "constraint": {}, "thumbnails": [] }
+        }
+      },
+      "items": {
+        "sliderimage": {
+          "type": "Image",
+          "config": {
+            "label": "sliderImage",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Community from "./community";
+import { get } from "lodash";
+import { createClient } from "../lib/prismic";
 
-export default function Header() {
-  const [isOnTop, setIsOnTop] = useState(true);
+export default function Header({ header }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
+
+  const logo = get(header?.headerImg, "data.slices[0].items") || [];
 
   let lastPos = 0;
 
@@ -40,22 +43,24 @@ export default function Header() {
         }`}
       ></div>
       <div
-        onClick={handleScroll}
-        className={`border-b w-[48%] z-50 ${isScrollDown ? "hidden" : ""}`}
+        className={`border-b w-[48%] h-[100px] z-50 ${
+          isScrollDown ? "hidden" : ""
+        }`}
       >
         <img
-          src="/images/header-left-icon.svg"
+          src={`${logo[0] ? logo[0].name.url : ""}`}
           alt="logo"
-          className="h-[75px] cursor-pointer mx-5 my-3 md:mx-10"
+          className="max-h-[75px] w-auto cursor-pointer mx-5 mt-6 mb-3 md:mx-10"
         />
       </div>
       <div
+        onClick={handleScroll}
         className={`border-b w-[48%] flex justify-end z-50 ${
           isScrollDown ? "hidden" : ""
         }`}
       >
         <img
-          src="/images/icon.png"
+          src={`${logo[1] ? logo[1].name.url : ""}`}
           alt="logo"
           className="h-[75px] cursor-pointer mx-5 my-3 md:mx-10"
         />
@@ -79,7 +84,7 @@ export default function Header() {
                   <span className="text-[6px] tracking-[1px]">ABOUT</span>．
                 </li>
               </Link>
-              <Link href="/gallery/card">
+              <Link href="/gallery/all">
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．作品集{" "}
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．

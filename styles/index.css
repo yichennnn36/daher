@@ -236,16 +236,15 @@
   }
 
   .disappear {
-    animation: disappear 3.5s 1 linear forwards;
+    animation: disappear 4s linear forwards;
   }
 
   @keyframes disappear {
-    0%,
-    70% {
+    from {
       opacity: 1;
     }
-    100% {
-      opacity: 0.6;
+    to {
+      opacity: 0.5;
     }
   }
 
@@ -331,6 +330,12 @@
     100% {
       opacity: 0;
       transform: rotate(-135deg) translate(-5px, -5px);
+    }
+  }
+
+  @media (min-width: 768px) {
+    #img-mapper > img {
+      width: 1000px !important;
     }
   }
 }
