@@ -9,7 +9,9 @@ const AreaMap = ({ area }) => {
 
   const toObject = (arr: []) => {
     let obj = {};
-    arr.forEach((item) => (obj[item.primary.text] = item.primary.image.url));
+    arr.forEach(
+      (item: any) => (obj[item.primary.text] = item.primary.image.url)
+    );
     return obj;
   };
 

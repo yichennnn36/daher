@@ -1,13 +1,13 @@
+// @ts-nocheck
 import { useState, useEffect, Suspense } from "react";
 import Template from "../../components/template";
 import Layout from "../../components/layout";
 import { createClient } from "../../lib/prismic";
-import { PostDocumentWithAuthor } from "../../lib/types";
 import MainIndex from "../../container/Main";
 
 type IndexProps = {
   preview: boolean;
-  data: PostDocumentWithAuthor[];
+  data: any;
 };
 
 export default function Index({ data }: IndexProps) {

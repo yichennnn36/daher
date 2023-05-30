@@ -41,7 +41,6 @@ const ProjectModal = ({ isShow, setIsShow, dataSource }) => {
                 <Slider {...settings}>
                   {slider?.map((item, index) => (
                     <PrismicNextImage
-                      alt="slider"
                       field={item.sliderimage}
                       className="bg-gray-100"
                     />
@@ -60,7 +59,6 @@ const ProjectModal = ({ isShow, setIsShow, dataSource }) => {
                 <div className="bg-gray-100 md:max-w-[180px] flex justify-center items-center lg:max-w-[240px]">
                   {prismicH.isFilled.image(dataSource.primary?.image2) && (
                     <PrismicNextImage
-                      alt="image-square"
                       field={dataSource.primary.image2}
                       className=""
                     />

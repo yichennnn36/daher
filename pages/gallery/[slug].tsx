@@ -1,13 +1,13 @@
+// @ts-nocheck
 import { useState, useEffect, Suspense } from "react";
 import Template from "../../components/template";
 import Gallery from "../../container/Gallery";
 import Layout from "../../components/layout";
 import { createClient } from "../../lib/prismic";
-import { PostDocumentWithAuthor } from "../../lib/types";
 
 type IndexProps = {
   preview: boolean;
-  data: PostDocumentWithAuthor[];
+  data: any;
 };
 
 const Index = ({ data }: IndexProps) => {
@@ -41,6 +41,6 @@ export async function getStaticPaths() {
 
   return {
     paths: allTags.map((x) => `/gallery/${x.uid}`),
-    fallback: true,
+    fallback: false,
   };
 }

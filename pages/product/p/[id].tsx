@@ -1,12 +1,12 @@
+// @ts-nocheck
 import { createClient } from "../../../lib/prismic";
 import Template from "../../../components/template";
 import ProductDetail from "../../../container/ProductDetail";
 import Layout from "../../../components/layout";
-import { PostDocumentWithAuthor } from "../../../lib/types";
 
 type IndexProps = {
   preview: boolean;
-  data: PostDocumentWithAuthor[];
+  data: any;
 };
 
 const Index = ({ data }: IndexProps) => {
@@ -29,7 +29,7 @@ export async function getStaticProps({ preview = false, previewData, params }) {
   const tags = await client.getByType("producttag");
 
   const targetProduct = products.data.slices?.filter(
-    (el) => el.primary.productuid === params.id
+    (el: any) => el.primary.productuid === params.id
   );
   return {
     props: { data: { headerImg, targetProduct, tags } },
@@ -43,6 +43,6 @@ export async function getStaticPaths() {
     paths: products?.data.slices.map(
       (x) => `/product/p/${x.primary.productuid}`
     ),
-    fallback: true,
+    fallback: false,
   };
 }

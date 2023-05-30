@@ -1,12 +1,12 @@
+// @ts-nocheck
 import { createClient } from "../../../lib/prismic";
-import { PostDocumentWithAuthor } from "../../../lib/types";
 import Template from "../../../components/template";
 import Product from "../../../container/Product";
 import Layout from "../../../components/layout";
 
 type IndexProps = {
   preview: boolean;
-  data: PostDocumentWithAuthor[];
+  data: any;
 };
 
 const Index = ({ data }: IndexProps) => {
@@ -40,6 +40,6 @@ export async function getStaticPaths() {
 
   return {
     paths: allTags.map((x) => `/product/${x.uid}}`),
-    fallback: true,
+    fallback: false,
   };
 }
