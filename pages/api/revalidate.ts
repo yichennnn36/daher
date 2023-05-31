@@ -10,7 +10,6 @@ import sm from "../../slicemachine.config.json";
  * The Prismic webhook must send the correct secret.
  */
 function linkResolver(doc) {
-  console.log("doc", doc);
   switch (doc.type) {
     case "history":
     case "header":
@@ -51,7 +50,7 @@ export default async function handler(req, res) {
     const documents = await client.getAllByIDs(req.body.documents);
 
     const [urls] = documents.map((doc) => linkResolver(doc));
-    console.log("urls", urls);
+
     try {
       // Revalidate the URLs for those documents
       await Promise.all(urls?.map(async (url) => await res.revalidate(url)));
