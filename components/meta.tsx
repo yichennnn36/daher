@@ -6,12 +6,7 @@ export default function Meta() {
   return (
     <Head>
       <title>大和派報社</title>
-      <link rel="icon" type="image/png" href="/images/icon.png" />
-      <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      />
+      <link rel="icon" type="image/png" href="/images/main-icon.svg" />
       <link
         rel="stylesheet"
         type="text/css"

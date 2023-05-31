@@ -17,7 +17,7 @@ const Product = ({ resource }) => {
     id: index,
     url: x.sliderimage.url,
   }));
-  console.log("tags", tags);
+
   return (
     <div className="px-4 min-h-[800px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-center mb-20">
       <div className="w-[200px] max-w-[300px] border border-white hidden mt-[84px] mr-[50px] xl:block text-white">

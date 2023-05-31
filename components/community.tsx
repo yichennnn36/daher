@@ -16,7 +16,7 @@ const Community = () => {
         <img src="/images/instagram.png" alt="" className="w-[30px] h-[30px]" />
       </a>
       <a
-        href="https://line.me/ti/p/~ohheyheyhey"
+        href="https://lin.ee/eMHCKBM"
         target="_blank"
         className="w-[50px] h-[50px] flex justify-center items-center"
       >

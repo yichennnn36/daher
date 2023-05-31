@@ -6,7 +6,7 @@ export default function Index() {
   const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => router.push("/about"), 2500);
+    setTimeout(() => router.push("/about"), 1000);
   }, []);
 
   return <Loading />;

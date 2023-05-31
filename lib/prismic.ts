@@ -20,6 +20,14 @@ const routes: prismic.Route[] = [
     type: "projectpost",
     path: "/gallery/:uid",
   },
+  {
+    type: "producttag",
+    path: "/product/:uid",
+  },
+  {
+    type: "productpost",
+    path: "/product/:uid",
+  },
 ];
 
 /**

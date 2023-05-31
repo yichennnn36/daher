@@ -12,7 +12,7 @@ const Main = () => {
           <div>我們要讓您的設計貼滿大街小巷</div>
         </div>
       </div>
-      <div className="flex flex-col space-y-4 px-6 min-h-[360px] max-w-[400px] m-auto lg:max-w-[500px] lg:scale-[1.15] lg:ml-[100px] xl:scale-[1.35] xl:ml-[300px]">
+      <div className="flex flex-col space-y-4 px-6 min-h-[360px] max-w-[400px] m-auto lg:m-[200px] lg:max-w-[500px] lg:scale-[1.15] xl:scale-[1.35]">
         <div className="flex w-full space-x-4">
           <div className="blockanimation min-w-[120px] min-h-[150px] relative bg-[url('/images/main-block1.svg')] bg-cover cursor-pointer">
             <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l ">

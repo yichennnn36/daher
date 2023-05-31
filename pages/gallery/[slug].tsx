@@ -38,9 +38,10 @@ export async function getStaticPaths() {
   const client = createClient();
 
   const allTags = await client.getAllByType("tag");
+  const tags = [{ uid: "all" }, ...allTags];
 
   return {
-    paths: allTags.map((x) => `/gallery/${x.uid}`),
+    paths: tags.map((x) => `/gallery/${x.uid}`),
     fallback: false,
   };
 }

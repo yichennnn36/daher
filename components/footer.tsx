@@ -51,7 +51,9 @@ const Footer = () => {
               >
                 Facebook
               </a>
-              <a className="">Line</a>
+              <a href="https://lin.ee/eMHCKBM" target="_blank">
+                Line
+              </a>
             </div>
           </div>
         </div>

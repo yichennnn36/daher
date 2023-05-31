@@ -25,7 +25,7 @@ const Product = ({ resource }) => {
   const productList = get(products, "data.slices").filter((x) =>
     slug === "all" ? x : x.primary.tagname.uid === slug
   );
-  console.log("productList", productList);
+
   return (
     <div className="px-4 min-h-[1000px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-center mb-20">
       <div className="w-[200px] max-w-[300px] border border-white hidden mt-[64px] mr-[50px] xl:block text-white">
