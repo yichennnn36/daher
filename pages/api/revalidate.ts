@@ -1,5 +1,6 @@
 import * as prismic from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
+import sm from "../../slicemachine.config.json";
 
 /**
  * This API endpoint will be called by a Prismic webhook. The webhook
@@ -8,6 +9,15 @@ import * as prismicH from "@prismicio/helpers";
  *
  * The Prismic webhook must send the correct secret.
  */
+function linkResolver(doc) {
+  console.log("doc", doc);
+  const aboutRouter = ["history", "header", "areamap"];
+  if (aboutRouter.includes(doc.type)) {
+    return "/about";
+  }
+  return null;
+}
+
 export default async function handler(req, res) {
   if (req.body.type === "api-update" && req.body.documents.length > 0) {
     // Check for secret to confirm this is a valid request
@@ -15,12 +25,12 @@ export default async function handler(req, res) {
       return res.status(401).json({ message: "Invalid token" });
     }
 
-    const client = prismic.createClient("https://daher-site.prismic.io/api/v2");
+    const client = prismic.createClient(sm.apiEndpoint);
     console.log("create client");
     // Get a list of URLs for any new, updated, or deleted documents
     const documents = await client.getAllByIDs(req.body.documents);
     console.log("documents", documents);
-    const urls = documents.map((doc) => prismicH.asLink(doc));
+    const urls = documents.map((doc) => prismicH.asLink(doc, linkResolver));
     console.log("urls", urls);
     try {
       // Revalidate the URLs for those documents
