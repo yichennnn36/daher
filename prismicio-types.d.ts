@@ -270,10 +270,10 @@ export type ProductpostDocument<Lang extends string = string> =
 /** Content for 商品分類 documents */
 interface ProducttagDocumentData {
   /**
-   * tagname field in *商品分類*
+   * 分類類別 field in *商品分類*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: 請輸入商品分類類別
    * - **API ID Path**: producttag.tagname
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
@@ -333,10 +333,10 @@ export type ProjectpostDocument<Lang extends string = string> =
 /** Content for 作品集分類 documents */
 interface TagDocumentData {
   /**
-   * TagName field in *作品集分類*
+   * 分類類別 field in *作品集分類*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: 請輸入作品集分類類別
    * - **API ID Path**: tag.tagname
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
@@ -372,17 +372,17 @@ export type AllDocumentTypes =
  */
 interface DescImageSliceDefaultPrimary {
   /**
-   * text field in *DescImage → Primary*
+   * 地區 field in *DescImage → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: 請輸入區域
    * - **API ID Path**: desc_image.primary.text
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
   text: prismicT.KeyTextField;
   /**
-   * image field in *DescImage → Primary*
+   * 圖片 field in *DescImage → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -428,7 +428,7 @@ export type DescImageSlice = prismicT.SharedSlice<
  */
 interface GallerySliceDefaultPrimary {
   /**
-   * tagName field in *Gallery → Primary*
+   * 分類類別 field in *Gallery → Primary*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
@@ -436,9 +436,9 @@ interface GallerySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  tagname: prismicT.RelationField;
+  tagname: prismicT.RelationField<"tag">;
   /**
-   * title field in *Gallery → Primary*
+   * 外層標題 field in *Gallery → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -448,7 +448,7 @@ interface GallerySliceDefaultPrimary {
    */
   title: prismicT.KeyTextField;
   /**
-   * description field in *Gallery → Primary*
+   * 外層描述 field in *Gallery → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -494,7 +494,7 @@ interface GallerySliceDefaultPrimary {
  */
 export interface GallerySliceDefaultItem {
   /**
-   * sliderImage field in *Gallery → Items*
+   * 幻燈片圖片 field in *Gallery → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -535,20 +535,30 @@ export type GallerySlice = prismicT.SharedSlice<
   GallerySliceVariation
 >;
 /**
- * Item in HeaderImage → Items
+ * Primary content in HeaderImage → Primary
  *
  */
-export interface HeaderImageSliceDefaultItem {
+interface HeaderImageSliceDefaultPrimary {
   /**
-   * name field in *HeaderImage → Items*
+   * 左側logo field in *HeaderImage → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: header_image.items[].name
+   * - **API ID Path**: header_image.primary.logoleft
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  name: prismicT.ImageField<never>;
+  logoleft: prismicT.ImageField<never>;
+  /**
+   * 右側logo field in *HeaderImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header_image.primary.logoright
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  logoright: prismicT.ImageField<never>;
 }
 /**
  * Default variation for HeaderImage Slice
@@ -560,8 +570,8 @@ export interface HeaderImageSliceDefaultItem {
  */
 export type HeaderImageSliceDefault = prismicT.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  Simplify<HeaderImageSliceDefaultItem>
+  Simplify<HeaderImageSliceDefaultPrimary>,
+  never
 >;
 /**
  * Slice variation for *HeaderImage*
@@ -639,7 +649,7 @@ interface ProductSliceDefaultPrimary {
    */
   productuid: prismicT.KeyTextField;
   /**
-   * tagname field in *Product → Primary*
+   * 分類類別 field in *Product → Primary*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
@@ -647,7 +657,7 @@ interface ProductSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  tagname: prismicT.RelationField;
+  tagname: prismicT.RelationField<"producttag">;
   /**
    * 外層圖片 field in *Product → Primary*
    *
@@ -751,7 +761,7 @@ export type ProductSlice = prismicT.SharedSlice<
  */
 export interface RepeatImageSliceDefaultItem {
   /**
-   * repeatImage field in *RepeatImage → Items*
+   * 廠商logo field in *RepeatImage → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -797,7 +807,7 @@ export type RepeatImageSlice = prismicT.SharedSlice<
  */
 interface TextSliceDefaultPrimary {
   /**
-   * text field in *Text → Primary*
+   * 文字內容 field in *Text → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -880,7 +890,7 @@ declare module "@prismicio/client" {
       GallerySliceDefault,
       GallerySliceVariation,
       GallerySlice,
-      HeaderImageSliceDefaultItem,
+      HeaderImageSliceDefaultPrimary,
       HeaderImageSliceDefault,
       HeaderImageSliceVariation,
       HeaderImageSlice,

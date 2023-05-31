@@ -10,9 +10,9 @@ const History = ({ text }) => {
       <div className="bg-[url('/images/history.jpg')] bg-cover z-30 h-[800px] flex justify-center items-center lg:justify-end">
         <div className="border-2 border-white h-[700px] w-[80%] z-10 break-words flex items-end lg:w-[45%] lg:mr-[120px]">
           <div className="text-white w-full p-6 space-y-10">
-            {map(content, (x) => {
+            {map(content, (x, index) => {
               const target = get(x, "primary.text[0].text");
-              return <div>{target}</div>;
+              return <div key={index}>{target}</div>;
             })}
           </div>
         </div>

@@ -7,12 +7,12 @@ const SubscribeForm = ({ formClassName }) => {
     e.preventDefault();
     emailjs
       .send(
-        "service_foq6w5s",
-        "template_nsjj3r4",
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_TOKEN,
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_B,
         {
           email,
         },
-        "OIRayJLa7-LHweyyF"
+        process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY
       )
       .then(
         () => window.alert("已成功送出！"),

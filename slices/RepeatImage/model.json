@@ -15,11 +15,7 @@
       "items": {
         "repeatimage": {
           "type": "Image",
-          "config": {
-            "label": "repeatImage",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "廠商logo", "constraint": {}, "thumbnails": [] }
         }
       }
     }

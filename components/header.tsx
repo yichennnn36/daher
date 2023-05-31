@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Community from "./community";
 import { get } from "lodash";
-import { createClient } from "../lib/prismic";
 
 export default function Header({ header }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
 
-  const logo = get(header?.headerImg, "data.slices[0].items") || [];
+  const logo = get(header?.headerImg, "data.slices[0].primary") || [];
 
   let lastPos = 0;
 
@@ -48,9 +47,9 @@ export default function Header({ header }) {
         }`}
       >
         <img
-          src={`${logo[0] ? logo[0].name.url : ""}`}
+          src={`${logo ? logo.logoleft.url : ""}`}
           alt="logo"
-          className="max-h-[75px] w-auto cursor-pointer mx-5 mt-6 mb-3 md:mx-10"
+          className="max-h-[75px] w-auto cursor-pointer mt-3"
         />
       </div>
       <div
@@ -60,7 +59,7 @@ export default function Header({ header }) {
         }`}
       >
         <img
-          src={`${logo[1] ? logo[1].name.url : ""}`}
+          src={`${logo ? logo.logoright.url : ""}`}
           alt="logo"
           className="h-[75px] cursor-pointer mx-5 my-3 md:mx-10"
         />
@@ -84,7 +83,7 @@ export default function Header({ header }) {
                   <span className="text-[6px] tracking-[1px]">ABOUT</span>．
                 </li>
               </Link>
-              <Link href="/gallery/all">
+              <Link href="/gallerycopy/all">
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．作品集{" "}
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．

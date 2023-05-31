@@ -14,11 +14,11 @@
       "primary": {
         "text": {
           "type": "Text",
-          "config": { "label": "text", "placeholder": "" }
+          "config": { "label": "地區", "placeholder": "請輸入區域" }
         },
         "image": {
           "type": "Image",
-          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+          "config": { "label": "圖片", "constraint": {}, "thumbnails": [] }
         }
       },
       "items": {}

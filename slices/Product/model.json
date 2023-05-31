@@ -18,7 +18,11 @@
         },
         "tagname": {
           "type": "Link",
-          "config": { "label": "tagname", "select": "document" }
+          "config": {
+            "label": "分類類別",
+            "select": "document",
+            "customtypes": ["producttag"]
+          }
         },
         "mainimage": {
           "type": "Image",

@@ -36,14 +36,14 @@ const Board = () => {
     e.preventDefault();
     emailjs
       .send(
-        "service_foq6w5s",
-        "template_b08elrw",
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_TOKEN,
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_A,
         {
           ...state,
           area: "X",
           amount: "X",
         },
-        "OIRayJLa7-LHweyyF"
+        process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY
       )
       .then(
         () => setIsShow(true),

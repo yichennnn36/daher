@@ -3,7 +3,7 @@ import { useState, useEffect, Suspense } from "react";
 import Template from "../../components/template";
 import Gallery from "../../container/Gallery";
 import Layout from "../../components/layout";
-import { createClient } from "../../lib/prismic";
+import { createClient } from "../../prismicio";
 
 type IndexProps = {
   preview: boolean;

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createClient } from "../../../lib/prismic";
+import { createClient } from "../../../prismicio";
 import Template from "../../../components/template";
 import ProductDetail from "../../../container/ProductDetail";
 import Layout from "../../../components/layout";

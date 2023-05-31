@@ -14,15 +14,19 @@
       "primary": {
         "tagname": {
           "type": "Link",
-          "config": { "label": "tagName", "select": "document" }
+          "config": {
+            "label": "分類類別",
+            "select": "document",
+            "customtypes": ["tag"]
+          }
         },
         "title": {
           "type": "Text",
-          "config": { "label": "title", "placeholder": "" }
+          "config": { "label": "外層標題", "placeholder": "" }
         },
         "description": {
           "type": "Text",
-          "config": { "label": "description", "placeholder": "" }
+          "config": { "label": "外層描述", "placeholder": "" }
         },
         "image": {
           "type": "Image",
@@ -46,7 +50,7 @@
         "sliderimage": {
           "type": "Image",
           "config": {
-            "label": "sliderImage",
+            "label": "幻燈片圖片",
             "constraint": {},
             "thumbnails": []
           }

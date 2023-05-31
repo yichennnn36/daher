@@ -11,13 +11,17 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
-      "items": {
-        "name": {
+      "primary": {
+        "logoleft": {
           "type": "Image",
-          "config": { "label": "name", "constraint": {}, "thumbnails": [] }
+          "config": { "label": "左側logo", "constraint": {}, "thumbnails": [] }
+        },
+        "logoright": {
+          "type": "Image",
+          "config": { "label": "右側logo", "constraint": {}, "thumbnails": [] }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

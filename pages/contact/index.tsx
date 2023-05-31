@@ -2,7 +2,7 @@
 import Template from "../../components/template";
 import Contact from "../../components/contact";
 import Layout from "../../components/layout";
-import { createClient } from "../../lib/prismic";
+import { createClient } from "../../prismicio";
 
 type IndexProps = {
   preview: boolean;

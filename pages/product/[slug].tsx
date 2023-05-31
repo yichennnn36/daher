@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createClient } from "../../lib/prismic";
+import { createClient } from "../../prismicio";
 import Template from "../../components/template";
 import Product from "../../container/Product";
 import Layout from "../../components/layout";
@@ -40,7 +40,7 @@ export async function getStaticPaths() {
   const tags = [{ uid: "all" }, ...allTags];
 
   return {
-    paths: tags.map((x) => `/product/${x.uid}}`),
+    paths: tags.map((x) => `/product/${x.uid}`),
     fallback: false,
   };
 }
