@@ -1,6 +1,5 @@
 import * as prismic from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
-import { createClient } from "../../prismicio";
 
 /**
  * This API endpoint will be called by a Prismic webhook. The webhook
@@ -16,7 +15,7 @@ export default async function handler(req, res) {
       return res.status(401).json({ message: "Invalid token" });
     }
 
-    const client = createClient();
+    const client = prismic.createClient("daher-site");
 
     // Get a list of URLs for any new, updated, or deleted documents
     const documents = await client.getAllByIDs(req.body.documents);
