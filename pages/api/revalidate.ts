@@ -15,7 +15,7 @@ function linkResolver(doc) {
     case "header":
     case "areamap":
     case "partnerLogo":
-      return "/about";
+      return ["/about"];
     case "projectpost":
       let arr = ["/gallery/all"];
       doc?.data?.slices?.forEach((el) =>
@@ -49,11 +49,11 @@ export default async function handler(req, res) {
     // Get a list of URLs for any new, updated, or deleted documents
     const documents = await client.getAllByIDs(req.body.documents);
 
-    const urls = documents.map((doc) => prismicH.asLink(doc, linkResolver));
-
+    const urls = documents.map((doc) => linkResolver(doc));
+    console.log("urls", urls);
     try {
       // Revalidate the URLs for those documents
-      await Promise.all(urls.map(async (url) => await res.revalidate(url)));
+      await Promise.all(urls?.map(async (url) => await res.revalidate(url)));
 
       return res.json({ revalidated: true });
     } catch (err) {
