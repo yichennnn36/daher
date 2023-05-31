@@ -10,6 +10,7 @@ import sm from "../../slicemachine.config.json";
  * The Prismic webhook must send the correct secret.
  */
 function linkResolver(doc) {
+  console.log("doc", doc);
   switch (doc.type) {
     case "history":
     case "header":
@@ -27,8 +28,8 @@ function linkResolver(doc) {
     case "productpost":
       let arr2 = ["/product/all"];
       doc?.data?.slices?.forEach((el) => {
-        arr2.push(`/gallery/${el?.primary?.tagname?.uid}`);
-        arr2.push(`/gallery/p/${el?.primary?.productuid}`);
+        arr2.push(`/product/${el?.primary?.tagname?.uid}`);
+        arr2.push(`/product/p/${el?.primary?.productuid}`);
       });
       return arr2;
     case "producttag":
