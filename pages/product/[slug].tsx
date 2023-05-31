@@ -41,6 +41,6 @@ export async function getStaticPaths() {
 
   return {
     paths: tags.map((x) => `/product/${x.uid}}`),
-    fallback: true,
+    fallback: false,
   };
 }
