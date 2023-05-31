@@ -11,10 +11,13 @@ import sm from "../../slicemachine.config.json";
  */
 function linkResolver(doc) {
   console.log("doc", doc);
-  const aboutRouter = ["history", "header", "areamap"];
-  if (aboutRouter.includes(doc.type)) {
-    return "/about";
-  }
+  console.log("doc data", doc.data.slices);
+  const aboutRouter = ["history", "header", "areamap", "partnerLogo"];
+  const gallery = ["projectpost", "tag"];
+  const product = ["productpost", "producttag"];
+  if (aboutRouter.includes(doc.type)) return "/about";
+  if (gallery.includes(doc.type)) return "/gallery/all";
+  if (product.includes(doc.type)) return "/product/all";
   return null;
 }
 
@@ -26,12 +29,11 @@ export default async function handler(req, res) {
     }
 
     const client = prismic.createClient(sm.apiEndpoint);
-    console.log("create client");
     // Get a list of URLs for any new, updated, or deleted documents
     const documents = await client.getAllByIDs(req.body.documents);
-    console.log("documents", documents);
+
     const urls = documents.map((doc) => prismicH.asLink(doc, linkResolver));
-    console.log("urls", urls);
+
     try {
       // Revalidate the URLs for those documents
       await Promise.all(urls.map(async (url) => await res.revalidate(url)));
