@@ -83,7 +83,7 @@ export default function Header({ header }) {
                   <span className="text-[6px] tracking-[1px]">ABOUT</span>．
                 </li>
               </Link>
-              <Link href="/gallerycopy/all">
+              <Link href="/gallery/all">
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．作品集{" "}
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．
