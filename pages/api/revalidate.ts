@@ -15,12 +15,13 @@ export default async function handler(req, res) {
       return res.status(401).json({ message: "Invalid token" });
     }
 
-    const client = prismic.createClient("daher-site");
-
+    const client = prismic.createClient("https://daher-site.prismic.io/api/v2");
+    console.log("create client");
     // Get a list of URLs for any new, updated, or deleted documents
     const documents = await client.getAllByIDs(req.body.documents);
+    console.log("documents", documents);
     const urls = documents.map((doc) => prismicH.asLink(doc));
-
+    console.log("urls", urls);
     try {
       // Revalidate the URLs for those documents
       await Promise.all(urls.map(async (url) => await res.revalidate(url)));
