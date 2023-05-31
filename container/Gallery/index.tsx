@@ -28,6 +28,7 @@ const Gallery = ({ resource }) => {
     <div className="px-4 min-h-[1000px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40">
       <div className="flex justify-end space-x-10">
         <button
+          onClick={() => router.push(`/gallery/all`)}
           className={`text-white px-2 ${
             slug === "all" && "border-b border-white"
           }`}

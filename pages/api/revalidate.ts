@@ -10,15 +10,32 @@ import sm from "../../slicemachine.config.json";
  * The Prismic webhook must send the correct secret.
  */
 function linkResolver(doc) {
-  console.log("doc", doc);
-  console.log("doc data", doc.data.slices);
-  const aboutRouter = ["history", "header", "areamap", "partnerLogo"];
-  const gallery = ["projectpost", "tag"];
-  const product = ["productpost", "producttag"];
-  if (aboutRouter.includes(doc.type)) return "/about";
-  if (gallery.includes(doc.type)) return "/gallery/all";
-  if (product.includes(doc.type)) return "/product/all";
-  return null;
+  switch (doc.type) {
+    case "history":
+    case "header":
+    case "areamap":
+    case "partnerLogo":
+      return "/about";
+    case "projectpost":
+      let arr = ["/gallery/all"];
+      doc?.data?.slices?.forEach((el) =>
+        arr.push(`/gallery/${el?.primary?.tagname?.type}`)
+      );
+      return arr;
+    case "tag":
+      return ["/gallery/all", `/gallery/${doc.uid}`];
+    case "productpost":
+      let arr2 = ["/product/all"];
+      doc?.data?.slices?.forEach((el) => {
+        arr2.push(`/gallery/${el?.primary?.tagname?.type}`);
+        arr2.push(`/gallery/p/${el?.primary?.productuid}`);
+      });
+      return arr2;
+    case "producttag":
+      return ["/product/all", `/product/${doc.uid}`];
+    default:
+      return null;
+  }
 }
 
 export default async function handler(req, res) {
