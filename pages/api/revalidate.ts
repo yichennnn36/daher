@@ -19,7 +19,7 @@ function linkResolver(doc) {
     case "projectpost":
       let arr = ["/gallery/all"];
       doc?.data?.slices?.forEach((el) =>
-        arr.push(`/gallery/${el?.primary?.tagname?.type}`)
+        arr.push(`/gallery/${el?.primary?.tagname?.uid}`)
       );
       return arr;
     case "tag":
@@ -27,7 +27,7 @@ function linkResolver(doc) {
     case "productpost":
       let arr2 = ["/product/all"];
       doc?.data?.slices?.forEach((el) => {
-        arr2.push(`/gallery/${el?.primary?.tagname?.type}`);
+        arr2.push(`/gallery/${el?.primary?.tagname?.uid}`);
         arr2.push(`/gallery/p/${el?.primary?.productuid}`);
       });
       return arr2;
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
     // Get a list of URLs for any new, updated, or deleted documents
     const documents = await client.getAllByIDs(req.body.documents);
 
-    const urls = documents.map((doc) => linkResolver(doc));
+    const [urls] = documents.map((doc) => linkResolver(doc));
     console.log("urls", urls);
     try {
       // Revalidate the URLs for those documents
