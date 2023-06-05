@@ -1,0 +1,23 @@
+{
+  "id": "product_tag",
+  "type": "SharedSlice",
+  "name": "ProductTag",
+  "description": "ProductTag",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "text": {
+          "type": "Text",
+          "config": { "label": "商品顏色、類別", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}

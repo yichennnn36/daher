@@ -1,0 +1,27 @@
+{
+  "id": "slider_image",
+  "type": "SharedSlice",
+  "name": "SliderImage",
+  "description": "SliderImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "輪播商品照片",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

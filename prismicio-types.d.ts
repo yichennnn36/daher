@@ -234,37 +234,92 @@ export type PartnerLogoDocument<Lang extends string = string> =
     Lang
   >;
 /** Content for 商品 documents */
-interface ProductpostDocumentData {
+interface ProductDocumentData {
+  /**
+   * 商品類別 field in *商品*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  category: prismicT.RelationField<"producttag">;
+  /**
+   * 外層圖片 field in *商品*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismicT.ImageField<never>;
+  /**
+   * 標題 field in *商品*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * 價錢 field in *商品*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  price: prismicT.KeyTextField;
+  /**
+   * 商品描述 field in *商品*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  description: prismicT.KeyTextField;
   /**
    * Slice Zone field in *商品*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: productpost.slices[]
+   * - **API ID Path**: product.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
-  slices: prismicT.SliceZone<ProductpostDocumentDataSlicesSlice>;
+  slices: prismicT.SliceZone<ProductDocumentDataSlicesSlice>;
 }
 /**
  * Slice for *商品 → Slice Zone*
  *
  */
-type ProductpostDocumentDataSlicesSlice = ProductSlice;
+type ProductDocumentDataSlicesSlice = SliderImageSlice | ProductTagSlice;
 /**
  * 商品 document from Prismic
  *
- * - **API ID**: `productpost`
- * - **Repeatable**: `false`
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ProductpostDocument<Lang extends string = string> =
+export type ProductDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithUID<
-    Simplify<ProductpostDocumentData>,
-    "productpost",
+    Simplify<ProductDocumentData>,
+    "product",
     Lang
   >;
 /** Content for 商品分類 documents */
@@ -362,7 +417,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HistoryDocument
   | PartnerLogoDocument
-  | ProductpostDocument
+  | ProductDocument
   | ProducttagDocument
   | ProjectpostDocument
   | TagDocument;
@@ -381,12 +436,18 @@ interface DescImageSliceDefaultPrimary {
    *
    */
   text: prismicT.KeyTextField;
+}
+/**
+ * Item in DescImage → Items
+ *
+ */
+export interface DescImageSliceDefaultItem {
   /**
-   * 圖片 field in *DescImage → Primary*
+   * 圖片 field in *DescImage → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: desc_image.primary.image
+   * - **API ID Path**: desc_image.items[].image
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
@@ -403,7 +464,7 @@ interface DescImageSliceDefaultPrimary {
 export type DescImageSliceDefault = prismicT.SharedSliceVariation<
   "default",
   Simplify<DescImageSliceDefaultPrimary>,
-  never
+  Simplify<DescImageSliceDefaultItem>
 >;
 /**
  * Slice variation for *DescImage*
@@ -756,6 +817,52 @@ export type ProductSlice = prismicT.SharedSlice<
   ProductSliceVariation
 >;
 /**
+ * Item in ProductTag → Items
+ *
+ */
+export interface ProductTagSliceDefaultItem {
+  /**
+   * 商品顏色、類別 field in *ProductTag → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_tag.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  text: prismicT.KeyTextField;
+}
+/**
+ * Default variation for ProductTag Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProductTagSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ProductTagSliceDefaultItem>
+>;
+/**
+ * Slice variation for *ProductTag*
+ *
+ */
+type ProductTagSliceVariation = ProductTagSliceDefault;
+/**
+ * ProductTag Shared Slice
+ *
+ * - **API ID**: `product_tag`
+ * - **Description**: `ProductTag`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProductTagSlice = prismicT.SharedSlice<
+  "product_tag",
+  ProductTagSliceVariation
+>;
+/**
  * Item in RepeatImage → Items
  *
  */
@@ -800,6 +907,52 @@ type RepeatImageSliceVariation = RepeatImageSliceDefault;
 export type RepeatImageSlice = prismicT.SharedSlice<
   "repeat_image",
   RepeatImageSliceVariation
+>;
+/**
+ * Item in SliderImage → Items
+ *
+ */
+export interface SliderImageSliceDefaultItem {
+  /**
+   * 輪播商品照片 field in *SliderImage → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_image.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for SliderImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SliderImageSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<SliderImageSliceDefaultItem>
+>;
+/**
+ * Slice variation for *SliderImage*
+ *
+ */
+type SliderImageSliceVariation = SliderImageSliceDefault;
+/**
+ * SliderImage Shared Slice
+ *
+ * - **API ID**: `slider_image`
+ * - **Description**: `SliderImage`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SliderImageSlice = prismicT.SharedSlice<
+  "slider_image",
+  SliderImageSliceVariation
 >;
 /**
  * Primary content in Text → Primary
@@ -870,9 +1023,9 @@ declare module "@prismicio/client" {
       PartnerLogoDocumentData,
       PartnerLogoDocumentDataSlicesSlice,
       PartnerLogoDocument,
-      ProductpostDocumentData,
-      ProductpostDocumentDataSlicesSlice,
-      ProductpostDocument,
+      ProductDocumentData,
+      ProductDocumentDataSlicesSlice,
+      ProductDocument,
       ProducttagDocumentData,
       ProducttagDocument,
       ProjectpostDocumentData,
@@ -882,6 +1035,7 @@ declare module "@prismicio/client" {
       TagDocument,
       AllDocumentTypes,
       DescImageSliceDefaultPrimary,
+      DescImageSliceDefaultItem,
       DescImageSliceDefault,
       DescImageSliceVariation,
       DescImageSlice,
@@ -903,10 +1057,18 @@ declare module "@prismicio/client" {
       ProductSliceDefault,
       ProductSliceVariation,
       ProductSlice,
+      ProductTagSliceDefaultItem,
+      ProductTagSliceDefault,
+      ProductTagSliceVariation,
+      ProductTagSlice,
       RepeatImageSliceDefaultItem,
       RepeatImageSliceDefault,
       RepeatImageSliceVariation,
       RepeatImageSlice,
+      SliderImageSliceDefaultItem,
+      SliderImageSliceDefault,
+      SliderImageSliceVariation,
+      SliderImageSlice,
       TextSliceDefaultPrimary,
       TextSliceDefault,
       TextSliceVariation,

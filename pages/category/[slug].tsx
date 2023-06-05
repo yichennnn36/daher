@@ -25,11 +25,12 @@ export async function getStaticProps({ preview = false, previewData }) {
   const client = createClient({ previewData });
 
   const headerImg = await client.getByUID("header", "logo");
-  const products = await client.getByUID("productpost", "product");
+  const products = await client.getAllByType("product");
   const tags = await client.getByType("producttag");
 
   return {
     props: { data: { headerImg, products, tags } },
+    revalidate: 60,
   };
 }
 
@@ -40,7 +41,7 @@ export async function getStaticPaths() {
   const tags = [{ uid: "all" }, ...allTags];
 
   return {
-    paths: tags.map((x) => `/product/${x.uid}`),
+    paths: tags.map((x) => `/category/${x.uid}`),
     fallback: false,
   };
 }

@@ -4,7 +4,7 @@ const ProductModal = ({ isShow, setIsShow }) => {
   return (
     <Modal isShow={isShow} setIsShow={setIsShow}>
       <div
-        className={`bg-white w-[60%] md:w-[40%] lg:w-[30%] xl:w-[20%] p-10 shadow-xl rounded-3xl fixed z-[500] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-45%] ease-out duration-300 text-center ${
+        className={`bg-white w-[70%] sm:w-[40%] lg:w-[30%] xl:w-[20%] p-10 shadow-xl rounded-3xl fixed z-[500] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-45%] ease-out duration-300 text-center ${
           isShow ? "translate-y-0" : "translate-y-[-100vh]"
         } ${isShow ? "" : "hidden"}`}
       >

@@ -8,6 +8,9 @@
   body {
     margin: 0;
     padding: 0;
+    font-family: "Noto Sans TC", "Lusitana Normal", "Lusitana Bold", "cwTeXMing",
+      "黑體", "Verdana", "新細明體", "Arial", "Geneva", "sans-serif",
+      "helvetica";
   }
   body::-webkit-scrollbar {
     display: none;
@@ -253,7 +256,7 @@
   }
   .project {
     background-image: url("/images/gallery-bg.png");
-    background-size: 100% auto;
+    /* background-size: 100% auto; */
     background-repeat: no-repeat;
   }
   .close {
@@ -337,5 +340,9 @@
     #img-mapper > img {
       width: 1000px !important;
     }
+  }
+
+  .bgsmooth {
+    background-image: url("/images/history.png");
   }
 }

@@ -31,6 +31,7 @@ export async function getStaticProps({ preview = false, previewData }) {
 
   return {
     props: { data: { headerImg, gallery, tags } },
+    revalidate: 60,
   };
 }
 

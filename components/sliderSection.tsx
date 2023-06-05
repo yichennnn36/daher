@@ -14,7 +14,7 @@ function SliderSection({ logo }) {
             傳統派報 x 平面設計
           </h1>
           <div className="border-white border-b w-[80%] mt-3 mb-6 md:w-[60%] lg:2-[50%] lg:mt-6 xl:w-[30%]"></div>
-          <div className="flex flex-col only:items-start text-sm space-y-4 lg:text-base">
+          <div className="flex flex-col space-y-4 text-center">
             <span>從設計到派發</span>
             <span>我們要讓您的設計貼滿大街小巷</span>
           </div>

@@ -1,0 +1,48 @@
+{
+  "id": "product",
+  "label": "商品",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": { "label": "編號", "placeholder": "請輸入唯一值" }
+      },
+      "category": {
+        "type": "Link",
+        "config": {
+          "label": "商品類別",
+          "select": "document",
+          "customtypes": ["producttag"]
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": { "label": "外層圖片", "constraint": {}, "thumbnails": [] }
+      },
+      "title": {
+        "type": "Text",
+        "config": { "label": "標題", "placeholder": "" }
+      },
+      "price": {
+        "type": "Text",
+        "config": { "label": "價錢", "placeholder": "" }
+      },
+      "description": {
+        "type": "Text",
+        "config": { "label": "商品描述", "placeholder": "" }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "slider_image": { "type": "SharedSlice" },
+            "product_tag": { "type": "SharedSlice" }
+          }
+        }
+      }
+    }
+  }
+}

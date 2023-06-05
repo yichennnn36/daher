@@ -13,7 +13,7 @@ export default function Header({ header }) {
   useEffect(() => {
     const handleScrollDown = () => {
       let scrollTop = document.documentElement.scrollTop;
-      if (scrollTop > lastPos) {
+      if (scrollTop > 90 && scrollTop > lastPos) {
         setIsScrollDown(true);
       } else {
         setIsScrollDown(false);
@@ -42,14 +42,14 @@ export default function Header({ header }) {
         }`}
       ></div>
       <div
-        className={`border-b w-[48%] h-[100px] z-50 ${
+        className={`border-b w-full sm:w-[48%] h-[100px] z-50 ${
           isScrollDown ? "hidden" : ""
         }`}
       >
         <img
           src={`${logo ? logo.logoleft.url : ""}`}
           alt="logo"
-          className="max-h-[75px] w-auto cursor-pointer mt-3"
+          className="max-h-[75px] w-auto cursor-pointer mt-5 sm:mt-3"
         />
       </div>
       <div
@@ -89,7 +89,7 @@ export default function Header({ header }) {
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．
                 </li>
               </Link>
-              <Link href="/product/all">
+              <Link href="/category/all">
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．商品{" "}
                   <span className="text-[6px] tracking-[1px]">PRODUCT</span>．
@@ -109,7 +109,7 @@ export default function Header({ header }) {
         </nav>
       </div>
       {/* 右側icon */}
-      <div className="hidden lg:flex lg:flex-col lg:items-center lg:fixed lg:right-[14px] lg:top-[140px] lg:space-y-6 xl:mr-4">
+      <div className="hidden lg:flex lg:flex-col lg:items-center lg:fixed lg:right-[14px] lg:top-[130px] lg:space-y-6 xl:mr-4 2xl:top-[200px]">
         <div className="h-[100px] w-[2px] bg-white lg:h-[120px]"></div>
         <div className="space-y-5">
           <Community />

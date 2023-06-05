@@ -15,13 +15,14 @@
         "text": {
           "type": "Text",
           "config": { "label": "地區", "placeholder": "請輸入區域" }
-        },
+        }
+      },
+      "items": {
         "image": {
           "type": "Image",
           "config": { "label": "圖片", "constraint": {}, "thumbnails": [] }
         }
-      },
-      "items": {}
+      }
     }
   ]
 }

@@ -4,14 +4,14 @@ import MapModal from "./mapModal";
 import AreaMap from "./areaMap";
 import emailjs from "@emailjs/browser";
 
-const Input = ({ name, setValue, value, placeholder }) => {
+const Input = ({ name, setValue, value, placeholder, required = true }) => {
   return (
     <div className="text-end">
       <input
         type="text"
         name={name}
         value={value}
-        required={true}
+        required={required}
         onChange={(e) => setValue(e)}
         className="border-b border-black pb-1 w-[100%] focus:outline-0 bg-transparent"
         placeholder={placeholder}
@@ -109,16 +109,17 @@ const Contact = ({ area }) => {
                     name="area"
                     setValue={handleInputChange}
                     value={state.area}
-                    placeholder="服務範圍：全高雄及部分屏東地區"
+                    placeholder="高雄市區及近郊、部分屏東地區"
                   />
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <label className="">欲派發的數量 *</label>
+                  <label className="">欲派發的數量</label>
                   <Input
                     name="amount"
                     setValue={handleInputChange}
                     value={state.amount}
                     placeholder="可直接與我們聯繫，以取得派報地圖"
+                    required={false}
                   />
                 </div>
               </div>

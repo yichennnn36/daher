@@ -24,13 +24,9 @@ function linkResolver(doc) {
       return arr;
     case "tag":
       return ["/gallery/all", `/gallery/${doc.uid}`];
-    case "productpost":
-      let arr2 = ["/product/all"];
-      doc?.data?.slices?.forEach((el) => {
-        arr2.push(`/product/${el?.primary?.tagname?.uid}`);
-        arr2.push(`/product/p/${el?.primary?.productuid}`);
-      });
-      return arr2;
+    case "product":
+      console.log("doc", doc);
+      return [`/prodcue/${doc.uid}`];
     case "producttag":
       return ["/product/all", `/product/${doc.uid}`];
     default:

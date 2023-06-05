@@ -1,6 +1,8 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const Main = () => {
+  const router = useRouter();
   return (
     <div className="w-full mt-[120px] lg:flex lg:flex-row lg:px-[50px] lg:justify-between lg:min-h-[700px] mb-[120px]">
       <div className="text-white py-[100px] tracking-[6px] lg:py-[150px] lg:pl-[50px]">
@@ -14,19 +16,28 @@ const Main = () => {
       </div>
       <div className="flex flex-col space-y-4 px-6 min-h-[360px] max-w-[400px] m-auto lg:m-[200px] lg:max-w-[500px] lg:scale-[1.15] xl:scale-[1.5]">
         <div className="flex w-full space-x-4">
-          <div className="blockanimation min-w-[120px] min-h-[150px] relative bg-[url('/images/main-block1.svg')] bg-cover cursor-pointer">
+          <div
+            onClick={() => router.push("/gallery/all")}
+            className="blockanimation min-w-[120px] min-h-[150px] relative bg-[url('/images/main-block1.svg')] bg-cover cursor-pointer"
+          >
             <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l ">
               作品集
             </div>
           </div>
-          <div className="blockanimation min-w-[120px] min-h-[150px]  relative main-block2 cursor-pointer">
+          <div
+            onClick={() => router.push("/contact")}
+            className="blockanimation min-w-[120px] min-h-[150px]  relative main-block2 cursor-pointer"
+          >
             <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l">
               聯絡我們
             </div>
           </div>
         </div>
-        <div className="min-h-[150px] min-w-[300px] relative main-block3 ">
-          <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] right-[10px] border-white border-l">
+        <div
+          onClick={() => router.push("/about")}
+          className="min-h-[150px] min-w-[300px] relative main-block3 cursor-pointer"
+        >
+          <div className="h-[110px] w-[140px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] right-[10px] border-white border-l">
             派報 x 設計
             <div className="text-sm mt-5">整合式廣告介紹</div>
           </div>

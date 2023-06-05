@@ -25,8 +25,8 @@ const Gallery = ({ resource }) => {
   };
 
   return (
-    <div className="px-4 min-h-[1000px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40">
-      <div className="flex justify-end space-x-10">
+    <div className="px-4 min-h-[1000px] mt-[160px] lg:pt-14 lg:pl-28 lg:pr-40">
+      <div className="flex justify-end space-x-3 md:space-x-6">
         <button
           onClick={() => router.push(`/gallery/all`)}
           className={`text-white px-2 ${
@@ -65,8 +65,7 @@ const Gallery = ({ resource }) => {
                   <PrismicNextImage
                     alt={project.primary.title}
                     field={featuredImage}
-                    // fill={true}
-                    className="object-cover"
+                    className="object-cover aspect-[4/3]"
                   />
                 )}
                 <div className="w-full h-full top-0 text-center absolute bg-[#26292db1] opacity-0 hover:opacity-100">

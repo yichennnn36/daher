@@ -16,8 +16,8 @@ const Loading = () => {
         />
         <img
           alt="loading-icon"
-          src="/images/loading-inner.png"
-          className="w-[50%] absolute z-20 top-[45px] left-[45px] sm:top-[85px] sm:left-[90px] bounceout"
+          src="/images/icon.png"
+          className="w-[40%] absolute z-20 top-[50px] left-[60px] sm:top-[100px] sm:left-[120px] bounceout"
         />
       </div>
     </div>

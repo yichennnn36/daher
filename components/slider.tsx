@@ -49,7 +49,7 @@ const CustomSlider = ({ logo }) => {
             <img
               alt={x.repeatimage?.description}
               src={x.repeatimage.url}
-              className="p-4 max-h-[120px] max-w-[120px]"
+              className="max-h-[120px] max-w-[120px]"
             />
           </div>
         );
