@@ -25,8 +25,7 @@ function linkResolver(doc) {
     case "tag":
       return ["/gallery/all", `/gallery/${doc.uid}`];
     case "product":
-      console.log("doc", doc);
-      return [`/prodcue/${doc.uid}`];
+      return [`/product/${doc.uid}`];
     case "producttag":
       return ["/product/all", `/product/${doc.uid}`];
     default:
