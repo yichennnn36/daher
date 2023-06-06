@@ -22,7 +22,7 @@ function SliderSection({ logo }) {
         {/* slider content */}
         <div className="mt-10">
           {/* slider */}
-          <div className="w-full p-10 lg:px-[120px]">
+          <div className="w-full p-4 lg:px-[120px]">
             <Slider logo={target} />
           </div>
           {/* desc */}

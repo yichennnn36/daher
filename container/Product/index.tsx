@@ -14,7 +14,7 @@ const Product = ({ resource }) => {
   );
 
   return (
-    <div className="px-4 min-h-[1000px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-start mb-20 2xl:pl-[300px]">
+    <div className="px-4 min-h-[1000px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-center mb-20 2xl:pl-[300px] lg:justify-start">
       <div className="w-[200px] max-w-[300px] border border-white hidden mt-[64px] mr-[50px] xl:block text-white">
         <ul className="space-y-4 mt-10 ml-4 cursor-pointer">
           <li
@@ -46,11 +46,11 @@ const Product = ({ resource }) => {
             >{` / ${tag.data?.tagname[0].text}`}</li>
           ))}
         </ul>
-        <ul className="grid grid-cols-1 gap-10 my-10 sm:grid-cols-2 md:grid-cols-3 lg:md:grid-cols-4 xl:mt-16">
+        <ul className="grid grid-cols-1 gap-10 my-10 sm:grid-cols-2 md:grid-cols-3 xl:md:grid-cols-4 xl:mt-16">
           {productList.map((product) => (
             <li key={product.id} className="grid gap-2 relative">
               <div
-                className="relative w-[280px] h-[280px] cursor-pointer sm:w-[230px] sm:h-[230px] aspect-square"
+                className="relative w-[280px] h-[280px] cursor-pointer sm:w-[220px] sm:h-[220px] aspect-square"
                 onClick={() => router.push(`/product/${product.uid}`)}
               >
                 <img src={product.data?.image.url} />
