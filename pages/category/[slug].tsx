@@ -30,6 +30,7 @@ export async function getStaticProps({ preview = false, previewData }) {
 
   return {
     props: { data: { headerImg, products, tags } },
+    revalidate: 60,
   };
 }
 

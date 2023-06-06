@@ -32,6 +32,7 @@ export async function getStaticProps({ preview = false, previewData, params }) {
   const targetProduct = products?.filter((el: any) => el.uid === params.id);
   return {
     props: { data: { headerImg, targetProduct, tags } },
+    revalidate: 60,
   };
 }
 
