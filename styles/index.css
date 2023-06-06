@@ -128,9 +128,12 @@
     transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
     width: 30px;
   }
-  .line .menu {
-    left: 18px;
-    top: 80px;
+  .line {
+    left: 20px;
+    top: 115px;
+  }
+  .menu {
+    left: 0;
   }
   .line .menu::before {
     top: -8px;

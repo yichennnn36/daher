@@ -25,12 +25,16 @@ export async function getStaticProps({ preview = false, previewData }) {
   const client = createClient({ previewData });
 
   const headerImg = await client.getByUID("header", "logo");
-  const products = await client.getAllByType("product");
-  const tags = await client.getByType("producttag");
+  const products = await client.getAllByType("product", {
+    orderings: [{ field: "document.last_publication_date", direction: "desc" }],
+  });
+  const tags = await client.getByType("producttag", {
+    orderings: [{ field: "document.first_publication_date", direction: "asc" }],
+  });
 
   return {
     props: { data: { headerImg, products, tags } },
-    revalidate: 60,
+    revalidate: 45,
   };
 }
 

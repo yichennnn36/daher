@@ -26,12 +26,21 @@ export async function getStaticProps({ preview = false, previewData }) {
   const client = createClient({ previewData });
 
   const headerImg = await client.getByUID("header", "logo");
-  const gallery = await client.getByUID("projectpost", "gallery");
-  const tags = await client.getByType("tag");
+  const gallery = await client.getByUID("projectpost", "gallery", {
+    orderings: [
+      {
+        field: "document.last_publication_date_publication_date",
+        direction: "desc",
+      },
+    ],
+  });
+  const tags = await client.getByType("tag", {
+    orderings: [{ field: "document.first_publication_date", direction: "asc" }],
+  });
 
   return {
     props: { data: { headerImg, gallery, tags } },
-    revalidate: 60,
+    revalidate: 45,
   };
 }
 

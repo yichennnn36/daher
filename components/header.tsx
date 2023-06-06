@@ -70,9 +70,13 @@ export default function Header({ header }) {
       {/* 選單按鈕 */}
       <div className={`fixed z-50 ${isScrollDown ? "hidden" : ""}`}>
         <nav className="nav-box">
-          <input type="checkbox" id="menu" className="lg:hidden" />
+          <input
+            type="checkbox"
+            id="menu"
+            className="lg:hidden border-white border"
+          />
           <label htmlFor="menu" className="line lg:hidden">
-            <div className="menu m-2"></div>
+            <div className="menu"></div>
           </label>
 
           <div className="menu-list lg:w-full lg:top-[50px] lg:h-[120px] lg:bg-transparent">
