@@ -59,9 +59,7 @@ const Footer = () => {
         </div>
       </div>
       <SubscribeForm formClassName="relative w-[70%] py-6 px-12 my-14 md:w-1/2 lg:w-1/4 lg:mx-auto lg:py-1 lg:mt-1" />
-      <div className="text-white opacity-10 w-full text-center pb-6">
-        @Da-Her Yuan Design
-      </div>
+      <div className="text-white opacity-10 w-full text-center pb-6"></div>
     </footer>
   );
 };
