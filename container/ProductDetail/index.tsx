@@ -14,7 +14,7 @@ const Product = ({ resource }) => {
     }));
 
   return (
-    <div className="px-4 min-h-[800px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-start mb-20 2xl:pl-[300px]">
+    <div className="px-4 min-h-[800px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-center mb-20 2xl:pl-[300px] lg:justify-start">
       <div className="w-[200px] max-w-[300px] border border-white hidden mt-[84px] mr-[50px] xl:block text-white">
         <ul className="space-y-4 mt-10 ml-4 cursor-pointer">
           <li id="all" onClick={() => router.push(`/category/all`)}>
@@ -43,7 +43,7 @@ const Product = ({ resource }) => {
         </ul>
         <div className="flex flex-col space-y-6 mt-10 md:flex-row md:space-x-6 md:items-end w-full xl:mt-[84px]">
           <ImageCarousel images={carousel} />
-          <div className="space-y-2 mx-8 max-w-[300px]">
+          <div className="space-y-2 md:mx-8 max-w-[300px]">
             <div className="text-white flex space-x-4 items-end">
               <div className="text-white text-[20px] font-bold">
                 {targetProduct[0].data?.title}
