@@ -64,18 +64,13 @@ const Product = ({ resource }) => {
                   </div>
                 ))}
             </div>
-            <div className="sm:hidden">
-              <a
-                href="https://shopee.tw/daher_design"
-                target="_blank"
-                className="w-[50px] h-[50px] flex justify-center items-center"
-              >
-                <img
-                  src="/images/shopee.png"
-                  alt=""
-                  className="w-[36px] h-[36px]"
-                />
-              </a>
+            <div
+              className="sm:hidden w-[120px] pt-6"
+              onClick={() =>
+                window.open("https://shopee.tw/daher_design", "_blank")
+              }
+            >
+              <img src="/images/shopeeBuy.png" alt="shopee-buy-btn" />
             </div>
           </div>
         </div>

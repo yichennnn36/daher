@@ -2,11 +2,6 @@ const Loading = () => {
   return (
     <div className="bg-black w-full h-screen flex items-center justify-center relative disappear">
       <div className="absolute w-full h-[1px] bg-white"></div>
-      <img
-        alt="icon"
-        src="/images/icon.png"
-        className="w-[50px] absolute top-4 right-4 m-4 bg-black"
-      />
       <div className="min-w-[200px] min-h-[200px] sm:min-w-[400px] sm:min-h-[400px] relative">
         <img
           id="loading-rotate-clockwise"
