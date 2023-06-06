@@ -30,7 +30,6 @@ export async function getStaticProps({ preview = false, previewData }) {
 
   return {
     props: { data: { headerImg, products, tags } },
-    revalidate: 60,
   };
 }
 
@@ -38,10 +37,10 @@ export async function getStaticPaths() {
   const client = createClient();
 
   const allTags = await client.getAllByType("producttag");
-  const tags = [{ uid: "all" }, ...allTags];
+  const tags = [{ uid: "all" }, { uid: "hint" }, ...allTags];
 
   return {
     paths: tags.map((x) => `/category/${x.uid}`),
-    fallback: false,
+    fallback: "blocking",
   };
 }

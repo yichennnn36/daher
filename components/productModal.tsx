@@ -1,6 +1,14 @@
 import Modal from "./modal";
+import { useRouter } from "next/router";
 
 const ProductModal = ({ isShow, setIsShow }) => {
+  const router = useRouter();
+
+  const handleClick = async () => {
+    await router.push("/category/all");
+    setIsShow(false);
+  };
+
   return (
     <Modal isShow={isShow} setIsShow={setIsShow}>
       <div
@@ -9,7 +17,7 @@ const ProductModal = ({ isShow, setIsShow }) => {
         } ${isShow ? "" : "hidden"}`}
       >
         <div
-          onClick={() => setIsShow(false)}
+          onClick={handleClick}
           className="fixed right-[10px] top-[10px] w-[20px] h-[20px] cursor-pointer"
         >
           <img src="/images/delete.png" alt="close" />

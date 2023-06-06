@@ -31,7 +31,6 @@ export async function getStaticProps({ preview = false, previewData }) {
 
   return {
     props: { data: { headerImg, gallery, tags } },
-    revalidate: 60,
   };
 }
 
@@ -43,6 +42,6 @@ export async function getStaticPaths() {
 
   return {
     paths: tags.map((x) => `/gallery/${x.uid}`),
-    fallback: false,
+    fallback: "blocking",
   };
 }

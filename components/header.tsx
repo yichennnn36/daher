@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Community from "./community";
 import { get } from "lodash";
+import { useRouter } from "next/router";
 
 export default function Header({ header }) {
+  const router = useRouter();
   const [isScrollDown, setIsScrollDown] = useState(false);
 
   const logo = get(header?.headerImg, "data.slices[0].primary") || [];
@@ -42,6 +44,7 @@ export default function Header({ header }) {
         }`}
       ></div>
       <div
+        onClick={() => router.push("/about")}
         className={`border-b w-full sm:w-[48%] h-[100px] z-50 ${
           isScrollDown ? "hidden" : ""
         }`}
@@ -69,7 +72,7 @@ export default function Header({ header }) {
         <nav className="nav-box">
           <input type="checkbox" id="menu" className="lg:hidden" />
           <label htmlFor="menu" className="line lg:hidden">
-            <div className="menu"></div>
+            <div className="menu m-2"></div>
           </label>
 
           <div className="menu-list lg:w-full lg:top-[50px] lg:h-[120px] lg:bg-transparent">
@@ -89,7 +92,7 @@ export default function Header({ header }) {
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．
                 </li>
               </Link>
-              <Link href="/category/all">
+              <Link href="/category/hint">
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．商品{" "}
                   <span className="text-[6px] tracking-[1px]">PRODUCT</span>．

@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as prismicH from "@prismicio/helpers";
 import ProductModal from "../../components/productModal";
 
 const Product = ({ resource }) => {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
   const router = useRouter();
   const { slug } = router.query;
   const { tags, products } = resource;
   const productList = products?.filter((x) =>
     slug === "all" ? x : x.data.category.uid === slug
   );
+
+  useEffect(() => {
+    if (slug === "hint") setIsShow(true);
+  }, []);
 
   return (
     <div className="px-4 min-h-[1000px] mt-[120px] lg:pt-14 lg:pl-28 lg:pr-40 flex justify-center mb-20 2xl:pl-[300px] lg:justify-start">
@@ -50,7 +54,7 @@ const Product = ({ resource }) => {
           {productList.map((product) => (
             <li key={product.id} className="grid gap-2 relative">
               <div
-                className="relative w-[280px] h-[280px] cursor-pointer sm:w-[220px] sm:h-[220px] aspect-square"
+                className="relative w-[280px] h-[280px] cursor-pointer sm:w-[200px] sm:h-[200px] aspect-square"
                 onClick={() => router.push(`/product/${product.uid}`)}
               >
                 <img src={product.data?.image.url} />
