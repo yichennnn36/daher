@@ -25,7 +25,7 @@ const History = ({ text }) => {
         style={{ backgroundPosition: `center ${height}px` }}
       >
         <div className="h-[700px] w-[80%] z-10 break-words flex items-end lg:w-[45%] lg:mr-[120px]">
-          <div className="text-white w-full p-6 space-y-5 parallax">
+          <div className="text-white w-full p-6 space-y-2 sm:space-y-5 parallax">
             {map(content, (x, index) => {
               const target = get(x, "primary.text");
               return (
@@ -34,31 +34,41 @@ const History = ({ text }) => {
                   field={target}
                   components={{
                     heading1: ({ children }) => (
-                      <h1 className="text-4xl leading-10">{children}</h1>
+                      <h1 className="text-2xl md:text-4xl leading-10">
+                        {children}
+                      </h1>
                     ),
                     heading2: ({ children }) => (
-                      <h1 className="text-3xl leading-10">{children}</h1>
+                      <h2 className="text-xl md:text-3xl leading-10">
+                        {children}
+                      </h2>
                     ),
                     heading3: ({ children }) => (
-                      <h1 className="text-2xl leading-8">{children}</h1>
+                      <h3 className="text-lg md:text-2xl leading-8">
+                        {children}
+                      </h3>
                     ),
                     heading4: ({ children }) => (
-                      <h1 className="text-xl">{children}</h1>
+                      <h4 className="text-base md:text-xl">{children}</h4>
                     ),
                     heading5: ({ children }) => (
-                      <h1 className="text-lg">{children}</h1>
+                      <h5 className="text-sm md:text-lg">{children}</h5>
                     ),
                     heading6: ({ children }) => (
-                      <h1 className="text-lg">{children}</h1>
+                      <h6 className="text-sm md:text-lg">{children}</h6>
                     ),
                     paragraph: ({ children }) => (
-                      <p className="text-base">{children}</p>
+                      <p className="text-xs md:text-base">{children}</p>
                     ),
                     list: ({ children }) => (
-                      <ul className="my-6 list-disc list-inside">{children}</ul>
+                      <ul className="my-6 list-disc list-inside text-xs md:text-base">
+                        {children}
+                      </ul>
                     ),
                     oList: ({ children }) => (
-                      <ol className="my-6 list-decimal">{children}</ol>
+                      <ol className="my-6 list-decimal text-xs md:text-base">
+                        {children}
+                      </ol>
                     ),
                   }}
                 />
