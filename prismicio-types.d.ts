@@ -40,101 +40,6 @@ export type AreamapDocument<Lang extends string = string> =
     "areamap",
     Lang
   >;
-/** Content for Author documents */
-interface AuthorDocumentData {
-  /**
-   * Name field in *Author*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: Name of the author
-   * - **API ID Path**: author.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  name: prismicT.TitleField;
-  /**
-   * Picture field in *Author*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: author.picture
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  picture: prismicT.ImageField<never>;
-}
-/**
- * Author document from Prismic
- *
- * - **API ID**: `author`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AuthorDocument<Lang extends string = string> =
-  prismicT.PrismicDocumentWithoutUID<
-    Simplify<AuthorDocumentData>,
-    "author",
-    Lang
-  >;
-/** Content for footer documents */
-interface FooterDocumentData {
-  /**
-   * footer text field in *footer*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.footerText[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/group
-   *
-   */
-  footerText: prismicT.GroupField<Simplify<FooterDocumentDataFooterTextItem>>;
-}
-/**
- * Item in footer → footer text
- *
- */
-export interface FooterDocumentDataFooterTextItem {
-  /**
-   * TEL field in *footer → footer text*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.footerText[].tel
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  tel: prismicT.RichTextField;
-  /**
-   * 07-766-1234 field in *footer → footer text*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.footerText[].telno
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  telno: prismicT.KeyTextField;
-}
-/**
- * footer document from Prismic
- *
- * - **API ID**: `footer`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type FooterDocument<Lang extends string = string> =
-  prismicT.PrismicDocumentWithoutUID<
-    Simplify<FooterDocumentData>,
-    "footer",
-    Lang
-  >;
 /** Content for 頁首圖片 documents */
 interface HeaderDocumentData {
   /**
@@ -199,10 +104,99 @@ export type HistoryDocument<Lang extends string = string> =
     "history",
     Lang
   >;
-/** Content for 廠商logo documents */
+/** Content for 網站介紹 documents */
+interface IntroductionDocumentData {
+  /**
+   * 區塊一文字 field in *網站介紹*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.text1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text1: prismicT.RichTextField;
+  /**
+   * 區塊二文字 field in *網站介紹*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.text2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text2: prismicT.RichTextField;
+  /**
+   * Slice Zone field in *網站介紹*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: introduction.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<IntroductionDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *網站介紹 → Slice Zone*
+ *
+ */
+type IntroductionDocumentDataSlicesSlice = never;
+/**
+ * 網站介紹 document from Prismic
+ *
+ * - **API ID**: `introduction`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type IntroductionDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithUID<
+    Simplify<IntroductionDocumentData>,
+    "introduction",
+    Lang
+  >;
+/** Content for 廠商logo區塊 documents */
 interface PartnerLogoDocumentData {
   /**
-   * Slice Zone field in *廠商logo*
+   * 區塊一文字 field in *廠商logo區塊*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partnerLogo.text1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text1: prismicT.RichTextField;
+  /**
+   * 區塊二文字 field in *廠商logo區塊*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partnerLogo.text2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text2: prismicT.RichTextField;
+  /**
+   * 區塊三文字 field in *廠商logo區塊*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partnerLogo.text3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text3: prismicT.RichTextField;
+  /**
+   * Slice Zone field in *廠商logo區塊*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -214,12 +208,12 @@ interface PartnerLogoDocumentData {
   slices: prismicT.SliceZone<PartnerLogoDocumentDataSlicesSlice>;
 }
 /**
- * Slice for *廠商logo → Slice Zone*
+ * Slice for *廠商logo區塊 → Slice Zone*
  *
  */
 type PartnerLogoDocumentDataSlicesSlice = RepeatImageSlice;
 /**
- * 廠商logo document from Prismic
+ * 廠商logo區塊 document from Prismic
  *
  * - **API ID**: `partnerLogo`
  * - **Repeatable**: `false`
@@ -412,10 +406,9 @@ export type TagDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithUID<Simplify<TagDocumentData>, "tag", Lang>;
 export type AllDocumentTypes =
   | AreamapDocument
-  | AuthorDocument
-  | FooterDocument
   | HeaderDocument
   | HistoryDocument
+  | IntroductionDocument
   | PartnerLogoDocument
   | ProductDocument
   | ProducttagDocument
@@ -1009,17 +1002,15 @@ declare module "@prismicio/client" {
       AreamapDocumentData,
       AreamapDocumentDataSlicesSlice,
       AreamapDocument,
-      AuthorDocumentData,
-      AuthorDocument,
-      FooterDocumentData,
-      FooterDocumentDataFooterTextItem,
-      FooterDocument,
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
       HeaderDocument,
       HistoryDocumentData,
       HistoryDocumentDataSlicesSlice,
       HistoryDocument,
+      IntroductionDocumentData,
+      IntroductionDocumentDataSlicesSlice,
+      IntroductionDocument,
       PartnerLogoDocumentData,
       PartnerLogoDocumentDataSlicesSlice,
       PartnerLogoDocument,

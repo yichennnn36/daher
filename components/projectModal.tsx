@@ -42,6 +42,7 @@ const ProjectModal = ({ isShow, setIsShow, dataSource }) => {
                 <Slider {...settings}>
                   {slider?.map((item, index) => (
                     <PrismicNextImage
+                      alt=""
                       field={item.sliderimage}
                       className="aspect-[7/10] object-cover lg:max-w-[600px]"
                     />

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useState, useEffect, Suspense } from "react";
+import React from "react";
 import Template from "../../components/template";
 import Gallery from "../../container/Gallery";
 import Layout from "../../components/layout";

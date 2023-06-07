@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 const ProductModal = ({ isShow, setIsShow }) => {
   const router = useRouter();
 
-  const handleClick = async () => {
-    await router.push("/category/all");
+  const handleClick = () => {
+    router.push("/category/all");
     setIsShow(false);
   };
 

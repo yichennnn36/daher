@@ -30,7 +30,7 @@ const Gallery = ({ resource }) => {
         <button
           onClick={() => router.push(`/gallery/all`)}
           className={`text-white px-2 ${
-            slug === "all" && "border-b border-white"
+            slug === "all" && "border-b border-white font-bold"
           }`}
         >
           全部

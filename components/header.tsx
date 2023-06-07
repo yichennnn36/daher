@@ -44,7 +44,7 @@ export default function Header({ header }) {
         }`}
       ></div>
       <div
-        onClick={() => router.push("/about")}
+        onClick={() => router.push("/about", undefined, { shallow: true })}
         className={`border-b w-full sm:w-[48%] h-[100px] z-50 ${
           isScrollDown ? "hidden" : ""
         }`}
@@ -102,7 +102,7 @@ export default function Header({ header }) {
                   <span className="text-[6px] tracking-[1px]">PRODUCT</span>．
                 </li>
               </Link>
-              <Link href="/contact">
+              <Link href="/contact" shallow>
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．聯絡我們{" "}
                   <span className="text-[6px] tracking-[1px]">CONTACT</span>．

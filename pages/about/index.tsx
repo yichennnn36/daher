@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useState, useEffect, Suspense } from "react";
+import React from "react";
 import Template from "../../components/template";
 import Layout from "../../components/layout";
 import { createClient } from "../../prismicio";
@@ -26,9 +26,10 @@ export async function getStaticProps({ preview = false, previewData }) {
   const headerImg = await client.getByUID("header", "logo");
   const historyText = await client.getByUID("history", "story");
   const partnerLogo = await client.getByUID("partnerLogo", "partnerlogo");
+  const [intro] = await client.getAllByType("introduction");
   const area = await client.getByUID("areamap", "area");
 
   return {
-    props: { data: { headerImg, historyText, partnerLogo, area } },
+    props: { data: { headerImg, historyText, partnerLogo, area, intro } },
   };
 }

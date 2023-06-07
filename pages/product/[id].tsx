@@ -1,9 +1,9 @@
 // @ts-nocheck
+import React from "react";
 import { createClient } from "../../prismicio";
 import Template from "../../components/template";
 import ProductDetail from "../../container/ProductDetail";
 import Layout from "../../components/layout";
-import * as prismicH from "@prismicio/helpers";
 
 type IndexProps = {
   preview: boolean;

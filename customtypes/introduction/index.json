@@ -1,6 +1,6 @@
 {
-  "id": "partnerLogo",
-  "label": "廠商logo區塊",
+  "id": "introduction",
+  "label": "網站介紹",
   "repeatable": false,
   "status": true,
   "json": {
@@ -21,22 +21,13 @@
           "label": "區塊二文字",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
-        }
-      },
-      "text3": {
-        "type": "StructuredText",
-        "config": {
-          "label": "區塊三文字",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
+          "single": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
         }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "repeat_image": { "type": "SharedSlice" } } }
+        "config": { "choices": {} }
       }
     }
   }

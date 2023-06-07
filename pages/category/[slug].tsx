@@ -1,4 +1,5 @@
 // @ts-nocheck
+import React from "react";
 import { createClient } from "../../prismicio";
 import Template from "../../components/template";
 import Product from "../../container/Product";

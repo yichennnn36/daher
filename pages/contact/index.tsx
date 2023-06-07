@@ -1,4 +1,5 @@
 // @ts-nocheck
+import React from "react";
 import Template from "../../components/template";
 import Contact from "../../components/contact";
 import Layout from "../../components/layout";
