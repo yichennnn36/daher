@@ -10,9 +10,9 @@
     scrollbar-width: none; /* Firefox */
     margin: 0;
     padding: 0;
-    font-family: "Noto Sans TC", "Lusitana Normal", "Lusitana Bold", "cwTeXMing",
-      "黑體", "Verdana", "新細明體", "Arial", "Geneva", "sans-serif",
-      "helvetica";
+    font-family: "Microsoft JhengHei", "Noto Sans TC", "Lusitana Normal",
+      "Lusitana Bold", "cwTeXMing", "黑體", "Verdana", "Arial", "Geneva",
+      "sans-serif", "helvetica";
   }
   body::-webkit-scrollbar {
     display: none;

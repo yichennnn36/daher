@@ -25,7 +25,7 @@ const History = ({ text }) => {
         style={{ backgroundPosition: `center ${height}px` }}
       >
         <div className="h-[700px] w-[80%] z-10 break-words flex items-end lg:w-[45%] lg:mr-[120px]">
-          <div className="text-white w-full p-6 space-y-10 parallax">
+          <div className="text-white w-full p-6 space-y-5 parallax">
             {map(content, (x, index) => {
               const target = get(x, "primary.text");
               return (
@@ -34,13 +34,13 @@ const History = ({ text }) => {
                   field={target}
                   components={{
                     heading1: ({ children }) => (
-                      <h1 className="text-4xl">{children}</h1>
+                      <h1 className="text-4xl leading-10">{children}</h1>
                     ),
                     heading2: ({ children }) => (
-                      <h1 className="text-3xl">{children}</h1>
+                      <h1 className="text-3xl leading-10">{children}</h1>
                     ),
                     heading3: ({ children }) => (
-                      <h1 className="text-2xl">{children}</h1>
+                      <h1 className="text-2xl leading-8">{children}</h1>
                     ),
                     heading4: ({ children }) => (
                       <h1 className="text-xl">{children}</h1>
@@ -52,7 +52,13 @@ const History = ({ text }) => {
                       <h1 className="text-lg">{children}</h1>
                     ),
                     paragraph: ({ children }) => (
-                      <p className="text-lg">{children}</p>
+                      <p className="text-base">{children}</p>
+                    ),
+                    list: ({ children }) => (
+                      <ul className="my-6 list-disc list-inside">{children}</ul>
+                    ),
+                    oList: ({ children }) => (
+                      <ol className="my-6 list-decimal">{children}</ol>
                     ),
                   }}
                 />
