@@ -73,6 +73,7 @@ const AreaMap = ({ area }) => {
           <Tag city="長治" position="top-[39%] right-[-2%] lg:top-[36.5%]" />
           <Tag city="內埔" position="top-[51%] right-[-1%] lg:top-[48%]" />
           <Tag city="竹田" position="top-[63%] right-[-1%] lg:top-[59%]" />
+          <Tag city="潮州" position="top-[70.5%] right-[-2%] lg:top-[66.5%]" />
           <Tag city="崁頂" position="top-[77.5%] right-[-3%] lg:top-[73%]" />
           <Tag city="南洲" position="top-[84.5%] right-[-3%] lg:top-[79.5%]" />
           <Tag city="林邊" position="top-[91.5%] right-[0%] lg:top-[86.5%]" />
