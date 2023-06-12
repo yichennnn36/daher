@@ -35,7 +35,7 @@ export default function Header({ header }) {
   };
 
   return (
-    <div
+    <header
       className={`flex w-full justify-between items-center fixed top-0 z-30`}
     >
       <div
@@ -52,7 +52,7 @@ export default function Header({ header }) {
         <img
           src={`${logo ? logo.logoleft.url : ""}`}
           alt="logo"
-          className="max-h-[75px] w-auto cursor-pointer mt-5 sm:mt-3"
+          className="max-h-[75px] w-auto cursor-pointer mt-5 sm:mt-3 ml-2"
         />
       </div>
       <div
@@ -79,7 +79,7 @@ export default function Header({ header }) {
             <div className="menu"></div>
           </label>
 
-          <div className="menu-list lg:w-full lg:top-[50px] lg:h-[120px] lg:bg-transparent">
+          <nav className="menu-list lg:w-full lg:top-[50px] lg:h-[120px] lg:bg-transparent">
             <ul className="lg:flex lg:space-y-0 lg:space-x-3 lg:!pt-[60px] lg:!ml-[36px] cursor-pointer tracking-[3px] text-lg">
               <Link href="/about">
                 <li
@@ -112,7 +112,7 @@ export default function Header({ header }) {
             <div className="flex space-x-10 justify-center mt-[150px]">
               <Community />
             </div>
-          </div>
+          </nav>
         </nav>
       </div>
       {/* 右側icon */}
@@ -127,6 +127,6 @@ export default function Header({ header }) {
           <div className="arrow"></div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

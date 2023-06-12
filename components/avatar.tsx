@@ -11,7 +11,6 @@ export default function Avatar({ name, picture }: AvatarProps) {
     <div className="flex items-center">
       <div className="w-12 h-12 relative mr-4">
         <PrismicNextImage
-          alt=""
           field={picture}
           layout="fill"
           className="rounded-full"

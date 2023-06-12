@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PrismicRichText } from "@prismicio/react";
 import MapModal from "./mapModal";
 import { get } from "lodash";
 
@@ -6,6 +7,7 @@ const AreaMap = ({ area }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [targetImg, setTargetImg] = useState("");
   const areaData = get(area, "data.slices");
+  const title = get(area, "data.title");
 
   const toObject = (arr: []) => {
     let obj = {};
@@ -33,7 +35,36 @@ const AreaMap = ({ area }) => {
 
   return (
     <>
-      <div className="relative md:px-20 py-20 lg:flex">
+      <div className="relative md:px-20 py-20 lg:flex lg:items-center">
+        <div className="text-center">
+          <PrismicRichText
+            key="title"
+            field={title}
+            components={{
+              heading1: ({ children }) => (
+                <h1 className="text-2xl md:text-4xl leading-10">{children}</h1>
+              ),
+              heading2: ({ children }) => (
+                <h2 className="text-xl md:text-3xl leading-10">{children}</h2>
+              ),
+              heading3: ({ children }) => (
+                <h3 className="text-lg md:text-2xl leading-8">{children}</h3>
+              ),
+              heading4: ({ children }) => (
+                <h4 className="text-base md:text-xl">{children}</h4>
+              ),
+              heading5: ({ children }) => (
+                <h5 className="text-sm md:text-lg">{children}</h5>
+              ),
+              heading6: ({ children }) => (
+                <h6 className="text-sm md:text-lg">{children}</h6>
+              ),
+              paragraph: ({ children }) => (
+                <p className="text-xs md:text-base">{children}</p>
+              ),
+            }}
+          />
+        </div>
         <div className="relative m-12 lg:m-16">
           <img src="/images/citymap_outline.png" alt="map" className="" />
           <Tag city="梓官" position="top-[22%] left-[-3%]" />

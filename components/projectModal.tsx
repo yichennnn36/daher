@@ -42,7 +42,6 @@ const ProjectModal = ({ isShow, setIsShow, dataSource }) => {
                 <Slider {...settings}>
                   {slider?.map((item, index) => (
                     <PrismicNextImage
-                      alt=""
                       field={item.sliderimage}
                       className="aspect-[7/10] object-cover lg:max-w-[600px]"
                     />
@@ -74,7 +73,6 @@ const ProjectModal = ({ isShow, setIsShow, dataSource }) => {
                 <div className="sm:max-w-[200px] flex justify-center items-center lg:max-w-[300px]">
                   {prismicH.isFilled.image(dataSource.primary?.image2) && (
                     <PrismicNextImage
-                      alt=""
                       field={dataSource.primary.image2}
                       className="aspect-square"
                     />

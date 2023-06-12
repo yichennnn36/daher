@@ -6,6 +6,15 @@
   "json": {
     "Main": {
       "uid": { "type": "UID", "config": { "label": "uid", "placeholder": "" } },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "左側標題",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

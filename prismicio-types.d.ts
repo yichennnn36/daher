@@ -9,6 +9,17 @@ type Simplify<T> = {
 /** Content for 地區地圖 documents */
 interface AreamapDocumentData {
   /**
+   * 標題 field in *地區地圖*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: areamap.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismicT.RichTextField;
+  /**
    * Slice Zone field in *地區地圖*
    *
    * - **Field Type**: Slice Zone
@@ -72,6 +83,17 @@ export type HeaderDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 /** Content for 故事介紹 documents */
 interface HistoryDocumentData {
+  /**
+   * 左側標題 field in *故事介紹*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismicT.RichTextField;
   /**
    * Slice Zone field in *故事介紹*
    *

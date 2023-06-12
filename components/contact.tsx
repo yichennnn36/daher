@@ -3,14 +3,14 @@ import MessageModal from "./messageModal";
 import SubscribeForm from "./subscribeForm";
 import emailjs from "@emailjs/browser";
 
-const Input = ({ name, setValue, value }) => {
+const Input = ({ name, setValue, value, required = true }) => {
   return (
     <div className="text-end">
       <input
         type="text"
         name={name}
         value={value}
-        required={true}
+        required={required}
         onChange={(e) => setValue(e)}
         className="text-white bg-transparent border-b border-white pb-1 w-full focus:outline-0"
       />
@@ -87,11 +87,12 @@ const Board = () => {
                 />
               </div>
               <div className="flex flex-col space-y-2">
-                <label className="text-white">LINE ID *</label>
+                <label className="text-white">LINE ID</label>
                 <Input
                   name="lineId"
                   setValue={handleOnChange}
                   value={state.lineId}
+                  required={false}
                 />
               </div>
               <div className="flex flex-col space-y-2">
@@ -99,6 +100,7 @@ const Board = () => {
                 <textarea
                   name="description"
                   value={state.description}
+                  required={true}
                   onChange={handleOnChange}
                   placeholder="有任何意見和想法都可以提出！"
                   rows={5}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ProductModal from "../../components/productModal";
+import { isEmpty } from "lodash";
 
 const Product = ({ resource }) => {
   const [isShow, setIsShow] = useState(false);
@@ -65,24 +66,30 @@ const Product = ({ resource }) => {
             </>
           ))}
         </ul>
-        <ul className="grid grid-cols-1 gap-10 my-10 sm:grid-cols-2 md:grid-cols-3 xl:md:grid-cols-4 xl:mt-16">
-          {productList.map((product) => (
-            <li key={product.id} className="grid gap-2 relative">
-              <div
-                className="relative w-[280px] h-[280px] cursor-pointer sm:w-[200px] sm:h-[200px] aspect-square"
-                onClick={() => router.push(`/product/${product.uid}`)}
-              >
-                <img src={product.data?.image.url} />
-              </div>
-              <div>
-                <div className="text-white">{product.data?.title}</div>
-                <span className="text-white text-sm">
-                  {product.data?.price}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {isEmpty(productList) ? (
+          <div className="w-full min-h-[500px] flex justify-center items-center xl:min-h-[600px] xl:min-w-[800px] 2xl:min-w-[900px]">
+            <img src="/images/prepare.png" alt="籌備中" className="w-[200px]" />
+          </div>
+        ) : (
+          <ul className="grid grid-cols-1 gap-10 my-10 sm:grid-cols-2 md:grid-cols-3 xl:md:grid-cols-4 xl:mt-16">
+            {productList.map((product) => (
+              <li key={product.id} className="grid gap-2 relative">
+                <div
+                  className="relative w-[280px] h-[280px] cursor-pointer sm:w-[200px] sm:h-[200px] aspect-square"
+                  onClick={() => router.push(`/product/${product.uid}`)}
+                >
+                  <img src={product.data?.image.url} />
+                </div>
+                <div>
+                  <div className="text-white">{product.data?.title}</div>
+                  <span className="text-white text-sm">
+                    {product.data?.price}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <ProductModal isShow={isShow} setIsShow={setIsShow} />
     </div>

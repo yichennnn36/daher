@@ -63,7 +63,7 @@ const Gallery = ({ resource }) => {
               >
                 {prismicH.isFilled.image(featuredImage) && (
                   <PrismicNextImage
-                    alt={project.primary.title}
+                    alt={project.primary?.title}
                     field={featuredImage}
                     className="object-cover aspect-[4/3]"
                   />
@@ -71,11 +71,11 @@ const Gallery = ({ resource }) => {
                 <div className="w-full h-full top-0 text-center absolute bg-[#26292db1] opacity-0 hover:opacity-100">
                   <div className="absolute text-white top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
                     <div className="text-white text-lg tracking-widest">
-                      {project.primary.title}
+                      {project.primary?.title}
                     </div>
                     <div className="min-w-[200px] h-[1px] bg-white mb-2"></div>
                     <span className="text-white text-sm">
-                      {project.primary.description}
+                      {project.primary?.description}
                     </span>
                   </div>
                 </div>
