@@ -95,6 +95,17 @@ interface HistoryDocumentData {
    */
   title: prismicT.RichTextField;
   /**
+   * 底圖 field in *故事介紹*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismicT.ImageField<never>;
+  /**
    * Slice Zone field in *故事介紹*
    *
    * - **Field Type**: Slice Zone

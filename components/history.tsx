@@ -6,6 +6,7 @@ const History = ({ text }) => {
   const [height, setHeight] = useState(-200);
   const content = get(text, "data.slices");
   const title = get(text, "data.title");
+  const image = get(text, "data.image.url");
 
   useEffect(() => {
     const handleScrollDown = () => {
@@ -20,10 +21,12 @@ const History = ({ text }) => {
   return (
     <div className="relative">
       <div className="absolute w-full h-full top-0 text-center bg-[#26292db1] opacity-80"></div>
-
       <div
-        className={`bgsmooth bg-cover z-30 h-[820px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:h-[960px]`}
-        style={{ backgroundPosition: `center ${height}px` }}
+        className={`bg-cover z-30 h-[820px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:h-[960px]`}
+        style={{
+          backgroundPosition: `center ${height}px`,
+          backgroundImage: `url(${image})`,
+        }}
       >
         <div className="text-white z-30 mt-20 lg:mt-0">
           <PrismicRichText
@@ -54,7 +57,7 @@ const History = ({ text }) => {
             }}
           />
         </div>
-        <div className="h-[700px] w-[90%] z-10 break-words flex items-center lg:w-[46%] lg:mr-[50px]">
+        <div className="min-h-[500px] w-auto z-10 break-words flex items-center lg:mr-[50px] ">
           <div className="text-white w-full p-6 space-y-2 sm:space-y-5 parallax">
             {map(content, (x, index) => {
               const target = get(x, "primary.text");

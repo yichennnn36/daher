@@ -64,7 +64,7 @@ const Contact = ({ area }) => {
         onSubmit={handleOnSubmit}
         className="w-full my-[100px] px-10 py-12 md:mb-[160px] lg:px-40 flex flex-col space-y-16 lg:flex-row justify-center lg:justify-between lg:items-center"
       >
-        <div>
+        <div className="lg:mr-4">
           <h1 className="text-[40px] font-extrabold lg:text-[48px]">
             Contact /
           </h1>

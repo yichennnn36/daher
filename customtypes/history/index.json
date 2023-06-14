@@ -15,6 +15,10 @@
           "single": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em"
         }
       },
+      "image": {
+        "type": "Image",
+        "config": { "label": "底圖", "constraint": {}, "thumbnails": [] }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

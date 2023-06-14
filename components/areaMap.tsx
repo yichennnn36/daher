@@ -35,7 +35,7 @@ const AreaMap = ({ area }) => {
 
   return (
     <>
-      <div className="relative md:px-20 py-20 lg:flex lg:items-center">
+      <div className="relative md:px-[50px] py-20 lg:flex lg:items-center">
         <div className="text-center">
           <PrismicRichText
             key="title"
@@ -65,7 +65,7 @@ const AreaMap = ({ area }) => {
             }}
           />
         </div>
-        <div className="relative m-12 lg:m-16">
+        <div className="relative m-12 lg:ml-16">
           <img src="/images/citymap_outline.png" alt="map" className="" />
           <Tag city="梓官" position="top-[22%] left-[-3%]" />
           <Tag city="楠梓" position="top-[33%] left-[-3%]" />
@@ -88,26 +88,28 @@ const AreaMap = ({ area }) => {
           <Tag city="大寮" position="top-[74%] right-[6%]" />
           <Tag city="林園" position="top-[87%] right-[12%]" />
         </div>
-        <div className="relative m-12 lg:m-16">
+        <div className="relative m-12 lg:ml-8 lg:scale-[0.9]">
           <img src="/images/specialmap_outline.png" alt="map" className="" />
-          <Tag city="阿蓮" position="top-[-0.5%] left-[3%]" />
-          <Tag city="路竹" position="top-[17%] left-[-3%]" />
-          <Tag city="彌陀" position="top-[29.5%] left-[-3%]" />
-          <Tag city="燕巢" position="top-[42%] left-[-2%]" />
-          <Tag city="麟洛" position="top-[60%] left-[4%]" />
-          <Tag city="萬丹" position="top-[67.5%] left-[3%]" />
-          <Tag city="新園" position="top-[74.5%] left-[5%]" />
-          <Tag city="東港" position="top-[90%] left-[4%]" />
-          <Tag city="美濃" position="top-[14%] right-[3%]" />
-          <Tag city="旗山" position="top-[27.5%] right-[16%]" />
-          <Tag city="大樹" position="top-[36.5%] right-[16%]" />
-          <Tag city="長治" position="top-[39%] right-[-2%]" />
-          <Tag city="內埔" position="top-[51%] right-[-1%]" />
-          <Tag city="竹田" position="top-[63%] right-[-1%]" />
-          <Tag city="潮州" position="top-[70.5%] right-[-2%]" />
-          <Tag city="崁頂" position="top-[77.5%] right-[-3%]" />
-          <Tag city="南洲" position="top-[84.5%] right-[-3%]" />
-          <Tag city="林邊" position="top-[91.5%] right-[0%]" />
+          <Tag city="湖內" position="top-[1%] left-[34%]" />
+          <Tag city="阿蓮" position="top-[-4%] left-[-2%]" />
+          <Tag city="路竹" position="top-[19%] left-[-3%]" />
+          <Tag city="彌陀" position="top-[30%] left-[4%]" />
+          <Tag city="燕巢" position="top-[42.5%] left-[9%]" />
+          <Tag city="麟洛" position="top-[60.5%] left-[14%]" />
+          <Tag city="萬丹" position="top-[67.5%] left-[16%]" />
+          <Tag city="新園" position="top-[74.5%] left-[15%]" />
+          <Tag city="東港" position="top-[91%] left-[19%]" />
+          <Tag city="美濃" position="top-[15%] right-[3%]" />
+          <Tag city="旗山" position="top-[28%] right-[16%]" />
+          <Tag city="大樹" position="top-[37%] right-[16%]" />
+          <Tag city="長治" position="top-[39.5%] right-[-2%]" />
+          <Tag city="內埔" position="top-[51.5%] right-[-1%]" />
+          <Tag city="竹田" position="top-[60%] right-[-1%]" />
+          <Tag city="萬巒" position="top-[66.5%] right-[-2%]" />
+          <Tag city="潮州" position="top-[72.5%] right-[-2%]" />
+          <Tag city="崁頂" position="top-[80%] right-[1%]" />
+          <Tag city="南洲" position="top-[85%] right-[11%]" />
+          <Tag city="林邊" position="top-[92.5%] right-[2%]" />
         </div>
       </div>
       <MapModal isShow={isOpen} setIsShow={setIsOpen} image={targetImg} />
