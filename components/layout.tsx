@@ -1,3 +1,4 @@
+import React from "react";
 import Meta from "../components/meta";
 
 type LayoutProps = {

@@ -50,7 +50,7 @@ export default function Header({ header }) {
         }`}
       >
         <img
-          src={`${logo ? logo.logoleft.url : ""}`}
+          src={`${logo ? logo.logoleft?.url : ""}`}
           alt="logo"
           className="max-h-[75px] w-auto cursor-pointer mt-5 sm:mt-3 ml-2"
         />
@@ -62,7 +62,7 @@ export default function Header({ header }) {
         }`}
       >
         <img
-          src={`${logo ? logo.logoright.url : ""}`}
+          src={`${logo ? logo.logoright?.url : ""}`}
           alt="logo"
           className="h-[75px] cursor-pointer mx-5 my-3 md:mx-10"
         />
@@ -81,7 +81,7 @@ export default function Header({ header }) {
 
           <nav className="menu-list lg:w-full lg:top-[50px] lg:h-[120px] lg:bg-transparent">
             <ul className="lg:flex lg:space-y-0 lg:space-x-3 lg:!pt-[60px] lg:!ml-[36px] cursor-pointer tracking-[3px] text-lg">
-              <Link href="/about">
+              <Link href="/about" prefetch>
                 <li
                   className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300"
                   onClick={handleScroll}
@@ -90,13 +90,13 @@ export default function Header({ header }) {
                   <span className="text-[6px] tracking-[1px]">ABOUT</span>．
                 </li>
               </Link>
-              <Link href="/gallery/all">
+              <Link href="/gallery/all" prefetch>
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．作品集{" "}
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．
                 </li>
               </Link>
-              <Link href="/category/hint">
+              <Link href="/category/hint" prefetch>
                 <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
                   ．商品{" "}
                   <span className="text-[6px] tracking-[1px]">PRODUCT</span>．

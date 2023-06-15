@@ -1,10 +1,6 @@
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import Template from "../../components/template";
-import Select from "../../components/select";
 import ProjectModal from "../../components/projectModal";
-import { PrismicLink, PrismicText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import * as prismicH from "@prismicio/helpers";
 import { get } from "lodash";

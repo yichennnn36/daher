@@ -42,7 +42,7 @@
     border-radius: 8px;
   }
   .loading-text {
-    font-family: "Poiret One", cursive !important;
+    font-family: "Poiret One", sans-serif !important;
   }
   .pb-safe {
     padding-bottom: constant(safe-area-inset-bottom);
@@ -242,7 +242,7 @@
   }
 
   .bounceout {
-    animation: 2s linear 1s infinite alternate bounceout;
+    animation: 2s linear infinite alternate bounceout;
   }
 
   @keyframes bounceout {
@@ -271,7 +271,7 @@
   }
 
   .disappear {
-    animation: disappear 4s linear forwards;
+    animation: disappear 3s linear forwards;
   }
 
   @keyframes disappear {
@@ -279,7 +279,7 @@
       opacity: 1;
     }
     to {
-      opacity: 0.5;
+      opacity: 0;
     }
   }
 
