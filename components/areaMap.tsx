@@ -90,8 +90,8 @@ const AreaMap = ({ area }) => {
         </div>
         <div className="relative m-12 lg:ml-8 lg:scale-[0.9]">
           <img src="/images/specialmap_outline.png" alt="map" className="" />
-          <Tag city="湖內" position="top-[1%] left-[34%]" />
-          <Tag city="阿蓮" position="top-[-4%] left-[-2%]" />
+          <Tag city="阿蓮" position="top-[1%] left-[34%]" />
+          <Tag city="湖內" position="top-[-4%] left-[-2%]" />
           <Tag city="路竹" position="top-[19%] left-[-3%]" />
           <Tag city="彌陀" position="top-[30%] left-[4%]" />
           <Tag city="燕巢" position="top-[42.5%] left-[9%]" />
