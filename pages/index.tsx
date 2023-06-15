@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Landing from "../components/landing";
+import Layout from "../components/layout";
 
 export default function Index() {
   const router = useRouter();
@@ -9,5 +10,9 @@ export default function Index() {
     setTimeout(() => router.push("/about", undefined, { shallow: true }), 3000);
   }, []);
 
-  return <Landing />;
+  return (
+    <Layout>
+      <Landing />
+    </Layout>
+  );
 }
