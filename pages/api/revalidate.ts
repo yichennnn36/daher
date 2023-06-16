@@ -11,6 +11,7 @@ import sm from "../../slicemachine.config.json";
  */
 function linkResolver(doc) {
   switch (doc.type) {
+    case "introduction":
     case "history":
     case "header":
     case "areamap":
