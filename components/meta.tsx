@@ -3,6 +3,15 @@ import Head from "next/head";
 export default function Meta() {
   return (
     <Head>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11123792459"
+      ></script>
+      <script>
+        window.dataLayer = window.dataLayer || []; function gtag()
+        {(window as any).dataLayer.push(arguments)}
+        gtag('js', new Date()); gtag('config', 'AW-11123792459');
+      </script>
       <title>大和派報社</title>
       <link rel="icon" type="image/png" href="/images/main-icon.svg" />
       <link
@@ -24,7 +33,8 @@ export default function Meta() {
         crossOrigin="true"
       />
       <link
-        href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap"
+        rel="stylesheet"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index,follow" />
