@@ -1,6 +1,17 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import { Fragment } from "react";
 
 export default function Document() {
+  const setGoogleTags = () => {
+    return {
+      __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11123792459');
+      `,
+    };
+  };
   return (
     <Html lang="en">
       <script
@@ -10,6 +21,13 @@ export default function Document() {
       ></script>
       <Head />
       <body>
+        <Fragment>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=AW-11123792459"
+          />
+          <script dangerouslySetInnerHTML={setGoogleTags()} />
+        </Fragment>
         <Main />
         <NextScript />
       </body>

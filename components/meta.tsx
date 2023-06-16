@@ -3,15 +3,6 @@ import Head from "next/head";
 export default function Meta() {
   return (
     <Head>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=AW-11123792459"
-      ></script>
-      <script>
-        window.dataLayer = window.dataLayer || []; function gtag()
-        {(window as any).dataLayer.push(arguments)}
-        gtag('js', new Date()); gtag('config', 'AW-11123792459');
-      </script>
       <title>大和派報社</title>
       <link rel="icon" type="image/png" href="/images/main-icon.svg" />
       <link
