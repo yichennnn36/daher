@@ -13,33 +13,33 @@ const Main = ({ intro }) => {
             field={intro.data?.text1}
             components={{
               heading1: ({ children }) => (
-                <h1 className="text-3xl md:text-4xl leading-10">{children}</h1>
+                <h1 className="text-[30px] leading-[40px] md:text-[36px]">{children}</h1>
               ),
               heading2: ({ children }) => (
-                <h2 className="text-2xl md:text-3xl leading-10">{children}</h2>
+                <h2 className="text-[24px] md:text-[30px] leading-[40px]">{children}</h2>
               ),
               heading3: ({ children }) => (
-                <h3 className="text-xl md:text-2xl leading-8">{children}</h3>
+                <h3 className="text-[20px] md:text-[24px] leading-[32px]">{children}</h3>
               ),
               heading4: ({ children }) => (
-                <h4 className="text-lg md:text-xl">{children}</h4>
+                <h4 className="text-[18px] md:text-[20px] leading-[28px]">{children}</h4>
               ),
               heading5: ({ children }) => (
-                <h5 className="text-base md:text-lg">{children}</h5>
+                <h5 className="text-[16px] md:text-[18px] leading-[24px]">{children}</h5>
               ),
               heading6: ({ children }) => (
-                <h6 className="text-sm md:text-lg">{children}</h6>
+                <h6 className="text-[14px] md:text-[18px] leading-[20px]">{children}</h6>
               ),
               paragraph: ({ children }) => (
-                <p className="text-xs md:text-base">{children}</p>
+                <p className="text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">{children}</p>
               ),
               list: ({ children }) => (
-                <ul className="my-6 list-disc list-inside text-xs md:text-base">
+                <ul className="my-6 list-disc list-inside text-[12px] md:text-[16px] md:leading-[24px]">
                   {children}
                 </ul>
               ),
               oList: ({ children }) => (
-                <ol className="my-6 list-decimal text-xs md:text-base">
+                <ol className="my-6 list-decimal text-[12px] md:text-[16px] md:leading-[24px]">
                   {children}
                 </ol>
               ),
@@ -51,33 +51,33 @@ const Main = ({ intro }) => {
             field={intro.data?.text2}
             components={{
               heading1: ({ children }) => (
-                <h1 className="text-3xl md:text-4xl leading-10">{children}</h1>
+                <h1 className="text-[30px] leading-[40px] md:text-[36px]">{children}</h1>
               ),
               heading2: ({ children }) => (
-                <h2 className="text-2xl md:text-3xl leading-10">{children}</h2>
+                <h2 className="text-[24px] md:text-[30px] leading-[40px]">{children}</h2>
               ),
               heading3: ({ children }) => (
-                <h3 className="text-xl md:text-2xl leading-8">{children}</h3>
+                <h3 className="text-[20px] md:text-[24px] leading-[32px]">{children}</h3>
               ),
               heading4: ({ children }) => (
-                <h4 className="text-lg md:text-xl">{children}</h4>
+                <h4 className="text-[18px] md:text-[20px] leading-[28px]">{children}</h4>
               ),
               heading5: ({ children }) => (
-                <h5 className="text-base md:text-lg">{children}</h5>
+                <h5 className="text-[16px] md:text-[18px] leading-[24px]">{children}</h5>
               ),
               heading6: ({ children }) => (
-                <h6 className="text-sm md:text-lg">{children}</h6>
+                <h6 className="text-[14px] md:text-[18px] leading-[20px]">{children}</h6>
               ),
               paragraph: ({ children }) => (
-                <p className="text-xs md:text-base">{children}</p>
+                <p className="text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">{children}</p>
               ),
               list: ({ children }) => (
-                <ul className="my-6 list-disc list-inside text-xs md:text-base">
+                <ul className="my-6 list-disc list-inside text-[12px] md:text-[16px] md:leading-[24px]">
                   {children}
                 </ul>
               ),
               oList: ({ children }) => (
-                <ol className="my-6 list-decimal text-xs md:text-base">
+                <ol className="my-6 list-decimal text-[12px] md:text-[16px] md:leading-[24px]">
                   {children}
                 </ol>
               ),
@@ -91,7 +91,7 @@ const Main = ({ intro }) => {
             onClick={() => router.push("/gallery/all")}
             className="blockanimation min-w-[120px] min-h-[150px] relative bg-[url('/images/main-block1.svg')] bg-cover cursor-pointer"
           >
-            <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l ">
+            <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l text-[16px]">
               作品集
             </div>
           </div>
@@ -101,7 +101,7 @@ const Main = ({ intro }) => {
             }
             className="blockanimation min-w-[120px] min-h-[150px]  relative main-block2 cursor-pointer"
           >
-            <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l">
+            <div className="h-[110px] w-[110px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] left-[30px] border-white border-l text-[16px]">
               聯絡我們
             </div>
           </div>
@@ -110,9 +110,9 @@ const Main = ({ intro }) => {
           onClick={() => router.push("/about")}
           className="min-h-[150px] min-w-[300px] relative main-block3 cursor-pointer"
         >
-          <div className="h-[110px] w-[140px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] right-[10px] border-white border-l">
+          <div className="h-[110px] w-[140px] pl-[16px] pt-[10px] tracking-widest text-white absolute top-[15%] right-[10px] border-white border-l text-[16px]">
             派報 x 設計
-            <div className="text-sm mt-5">整合式廣告介紹</div>
+            <div className="text-[14px] mt-5">整合式廣告介紹</div>
           </div>
         </div>
       </div>
