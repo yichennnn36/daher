@@ -108,7 +108,7 @@ const AreaMap = ({ area }) => {
           <Tag city="萬巒" position="top-[66.5%] right-[-2%]" />
           <Tag city="潮州" position="top-[72.5%] right-[-2%]" />
           <Tag city="崁頂" position="top-[80%] right-[1%]" />
-          <Tag city="南洲" position="top-[85%] right-[11%]" />
+          <Tag city="南州" position="top-[85%] right-[11%]" />
           <Tag city="林邊" position="top-[92.5%] right-[2%]" />
         </div>
       </div>
