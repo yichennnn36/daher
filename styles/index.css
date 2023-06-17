@@ -14,32 +14,25 @@
       "Lusitana Bold", "cwTeXMing", "黑體", "Verdana", "Arial", "Geneva",
       "sans-serif", "helvetica";
   }
-  body::-webkit-scrollbar {
+  ::-webkit-scrollbar {
+    width: 7px;
     display: none;
     background-color: transparent;
-    width: 12px;
   }
-  body::-webkit-scrollbar {
-    -webkit-appearance: none;
+  ::-webkit-scrollbar-button {
+    background: transparent;
+    border-radius: 4px;
   }
-
-  body::-webkit-scrollbar:vertical {
-    width: 11px;
+  ::-webkit-scrollbar-track-piece {
+    background: transparent;
   }
-
-  body::-webkit-scrollbar:horizontal {
-    height: 11px;
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid slategrey;
   }
-
-  body::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 2px solid white; /* should match background, can't be transparent */
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  body::-webkit-scrollbar-track {
-    background-color: #fff;
-    border-radius: 8px;
+  ::-webkit-scrollbar-track {
+    box-shadow: transparent;
   }
   .loading-text {
     font-family: "Poiret One", sans-serif !important;

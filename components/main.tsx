@@ -6,9 +6,9 @@ const Main = ({ intro }) => {
   const router = useRouter();
 
   return (
-    <div className="w-full mt-[120px] lg:flex lg:flex-row lg:px-[50px] lg:justify-around lg:min-h-[700px] mb-[120px]">
-      <div className="text-white py-[100px] tracking-[3px] lg:py-[150px] lg:pl-[50px]">
-        <div className="w-[320px] m-auto md:w-[370px] xl:w-[450px] xl:tracking-[5px]">
+    <div className="w-full mt-[120px] lg:flex lg:flex-row lg:px-[50px] lg:justify-between lg:min-h-[700px] mb-[120px] 2xl:mt-[150px]">
+      <div className="text-white py-[100px] tracking-[3px] lg:py-[150px] lg:pl-[125px]">
+        <div className="w-[320px] m-auto md:w-[400px] xl:w-[450px] xl:tracking-[5px]">
           <PrismicRichText
             field={intro.data?.text1}
             components={{
@@ -46,7 +46,7 @@ const Main = ({ intro }) => {
             }}
           />
         </div>
-        <div className="text-start w-[320px] md:w-[370px] m-auto mt-[28px] xl:w-[450px]">
+        <div className="text-start w-[320px] md:w-[400px] m-auto mt-[28px] xl:w-[450px]">
           <PrismicRichText
             field={intro.data?.text2}
             components={{
@@ -85,7 +85,7 @@ const Main = ({ intro }) => {
           />
         </div>
       </div>
-      <div className="flex flex-col space-y-4 px-6 min-h-[360px] max-w-[400px] m-auto lg:ml-[120px] lg:mt-[160px] lg:max-w-[500px] lg:scale-[1.15] xl:scale-[1.5] xl:m-[200px] 2xl:scale-[1.6] 2xl:mt-[240px]">
+      <div className="flex flex-col space-y-4 px-6 min-h-[360px] max-w-[400px] m-auto lg:ml-[120px] lg:mt-[160px] lg:max-w-[500px] lg:scale-[1.15] xl:scale-[1.5] xl:m-[200px] 2xl:scale-[1.6]">
         <div className="flex w-full space-x-4">
           <div
             onClick={() => router.push("/gallery/all")}
