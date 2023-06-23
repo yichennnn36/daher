@@ -22,13 +22,13 @@ const History = ({ text }) => {
     <div className="relative">
       <div className="absolute w-full h-full top-0 text-center bg-[#26292db1] opacity-80"></div>
       <div
-        className={`bg-cover z-30 h-[820px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:h-[960px]`}
+        className={`bg-cover z-10 h-[820px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:h-[960px]`}
         style={{
           backgroundPosition: `center ${height}px`,
           backgroundImage: `url(${image})`,
         }}
       >
-        <div className="text-white z-30 mt-20 lg:mt-0">
+        <div className="text-white z-10 mt-20 lg:mt-0">
           <PrismicRichText
             key="title"
             field={title}
