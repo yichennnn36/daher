@@ -3,6 +3,7 @@ import Link from "next/link";
 import Community from "./community";
 import { get } from "lodash";
 import { useRouter } from "next/router";
+import { gtag_report_conversion } from "../lib/ga";
 
 export default function Header({ header }) {
   const router = useRouter();
@@ -28,6 +29,7 @@ export default function Header({ header }) {
   }, []);
 
   const handleScroll = () => {
+    gtag_report_conversion();
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -91,19 +93,28 @@ export default function Header({ header }) {
                 </li>
               </Link>
               <Link href="/gallery/all" prefetch>
-                <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
+                <li
+                  className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300"
+                  onClick={() => gtag_report_conversion()}
+                >
                   ．作品集{" "}
                   <span className="text-[6px] tracking-[1px]">WORKS</span>．
                 </li>
               </Link>
               <Link href="/category/hint" prefetch>
-                <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
+                <li
+                  className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300"
+                  onClick={() => gtag_report_conversion()}
+                >
                   ．商品{" "}
                   <span className="text-[6px] tracking-[1px]">PRODUCT</span>．
                 </li>
               </Link>
               <Link href="/contact" shallow>
-                <li className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300">
+                <li
+                  className="my-5 lg:!w-auto hover:scale-[1.05] lg:hover:scale-[1.15] ease-out duration-300"
+                  onClick={() => gtag_report_conversion()}
+                >
                   ．聯絡我們{" "}
                   <span className="text-[6px] tracking-[1px]">CONTACT</span>．
                 </li>

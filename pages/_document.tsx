@@ -1,17 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { Fragment } from "react";
 
 export default function Document() {
-  const setGoogleTags = () => {
-    return {
-      __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-11123792459');
-      `,
-    };
-  };
   return (
     <Html lang="en">
       <script
@@ -19,15 +8,32 @@ export default function Document() {
         defer
         src="https://static.cdn.prismic.io/prismic.js?new=true&repo=daher-site"
       ></script>
-      <Head />
+      <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=AW-11123792459`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('config', 'AW-11123792459');
+							gtag('js', new Date());
+							`,
+          }}
+        />
+      </Head>
       <body>
-        <Fragment>
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=AW-11123792459"
-          />
-          <script dangerouslySetInnerHTML={setGoogleTags()} />
-        </Fragment>
+        {/* <!-- Google Tag Manager (noscript) --> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=AW-11123792459`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* <!-- End Google Tag Manager (noscript) --> */}
         <Main />
         <NextScript />
       </body>
