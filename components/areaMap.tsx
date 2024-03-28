@@ -62,8 +62,8 @@ const AreaMap = ({ area }) => {
           <Tag city="前金" position="top-[62.5%] left-[-3%]" />
           <Tag city="新興" position="top-[67.5%] left-[-3%]" />
           <Tag city="前鎮" position="top-[72.5%] left-[-3%]" />
-          <Tag city="小港x大林浦" position="top-[77%] left-[-4%]" />
-          <Tag city="小港-大林浦" position="top-[83.1%] left-[-4%]" />
+          <Tag city="小港(含大林蒲、鳳鼻頭)" position="top-[77%] left-[-4%]" />
+          <Tag city="小港(不含大林蒲、鳳鼻頭)" position="top-[83.1%] left-[-4%]" />
           <Tag city="旗津" position="top-[90.5%] left-[5%]" />
 
           <Tag city="岡山" position="top-[7.5%] right-[14%]" />
