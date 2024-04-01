@@ -16,7 +16,7 @@ const mapModal = ({ isShow, setIsShow, image }) => {
         }`}
       >
         <div onClick={() => setIsShow(false)} className="close cursor-pointer top-0"></div>
-        <div className="relative space-y-10 min-h-[600px] overflow-scroll mt-[30px]">
+        <div className="relative space-y-10 min-h-[600px] max-h-[700px] overflow-scroll mt-[30px]">
           {image &&
             image.map((el, index) => (
               <>
