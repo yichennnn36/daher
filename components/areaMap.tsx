@@ -51,7 +51,7 @@ const AreaMap = ({ area }) => {
             }}
           />
         </div>
-        <div className="relative m-[50px] lg:ml-[60px]">
+        <div className="relative m-[50px] lg:ml-[80px]">
           <img src="/images/citymap_outline.png" alt="map" className="" />
           <Tag city="梓官" position="top-[22.5%] left-[-3%]" />
           <Tag city="楠梓" position="top-[34%] left-[-3%]" />
@@ -78,7 +78,7 @@ const AreaMap = ({ area }) => {
           <Tag city="大寮二" position="top-[78.5%] right-[12%]" />
           <Tag city="林園" position="top-[87.6%] right-[12%]" />
         </div>
-        <div className="relative m-[50px] lg:mr-[70px]">
+        <div className="relative m-[50px] lg:mr-[100px]">
           <img src="/images/specialmap_outline.png" alt="map" className="" />
           <Tag city="阿蓮" position="top-[25.1%] left-[-2%]" />
           <Tag city="路竹" position="top-[29.8%] left-[-2%]" />
